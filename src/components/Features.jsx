@@ -5,7 +5,7 @@ import Hero from './Hero'
 const Features = () => {
 
   return (
-    <div  style={{scrollbarWidth : "100px"}} className='h-screen scrollbar scrollbar-thumb-gray-800 scrollbar-track-transparent  overflow-y-scroll'>
+    <div  style={{scrollbarWidth : "100px"}} className='h-screen  scrollbar scrollbar-thumb-gray-800 scrollbar-track-transparent  overflow-y-scroll'>
         <Hero className = 'top-0 z-0 sticky'/>
         <div className=' h-[20px] sticky -top-3 z-10 rounded-t-2xl justify-center flex flex-col  items-center p-2 bg-[#34856C] '>
             <div className=' w-[50px] border-white text-white h-[0.5px]  border-2 '>
@@ -13,20 +13,20 @@ const Features = () => {
         </div>
         <div id='Features' className='bg-[#34856C] space-x-2 text-[#F8FAFA] '>
             
-            <div className='bg-[#34856C] sticky -top-3 ' style={{fontFamily : "Poppins"}}>
+            <div className='bg-[#34856C] sticky -top-3 p-2' style={{fontFamily : "Poppins"}}>
                 <h1 className='font-bold text-[64px] '>Why Choose Shankh?</h1>
                 <div className='border h-[1px] border-white'></div>
             </div>
             <div className='h-full'>
-                <div className='flex h-[93svh] z-10 sticky bg-[#34856C] justify-between top-0'>
+                <div className='flex h-[93svh] z-10 p-2 sticky bg-[#34856C] justify-between top-0'>
                     <span className='text-[48px] font-bold'>1.</span>
                     <div className=' space-y-8 w-[90%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
-                            <h1 className='text-[48px] w-[636px] font-semibold'>AI-Driven Speech Analysis</h1>
+                            <h1 className='text-[48px] w-[736px] font-semibold'>AI-Driven Speech Analysis</h1>
                             <span>img</span>
                         </div>
                         <div style={{fontFamily : "Inter"}} className='z-10 space-y-8 relative'>
-                            <p className='text-[24px] w-[626px]'>
+                            <p className='text-[24px] w-[736px]'>
                                 Gain instant, accurate feedback on every aspect of your verbal communication. Our advanced AI technology analyzes pronunciation, articulation, tone, pace, fluency, and speech clarity—providing actionable insights that transform how you speak and present yourself
                             </p>
                             
@@ -52,8 +52,8 @@ const Features = () => {
                     </div>
                     
                 </div>
-                <div  className='border mt-1 z-20 sticky top-[72px] border-white'></div> 
-                <div className='flex h-[83svh] z-20 sticky top-[76px]  justify-between  bg-[#34856C] '>
+                <div  className='border z-20 sticky top-[72px] border-white'></div> 
+                <div className='flex h-[83svh] p-2 z-20 sticky top-[74px]  justify-between  bg-[#34856C] '>
                     <span className='text-[48px] font-bold'>2.</span>
                     <div className=' space-y-8 w-[90%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
@@ -85,12 +85,12 @@ const Features = () => {
                         </div>
                     </div>
                 </div>
-                <div  className='border mt-1 sticky top-36 z-30 border-white'></div> 
-                <div className='flex h-[73svh] justify-between bg-[#34856C] sticky top-[168px] z-30'>
+                <div  className='border sticky top-[148px] z-30 border-white'></div> 
+                <div className='flex h-[73svh] p-2 justify-between bg-[#34856C] sticky top-[152px] z-30'>
                     <span className='text-[48px] font-bold'>3.</span>
                     <div className=' space-y-8 w-[90%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
-                            <h1 className='text-[48px] w-[900px] leading-14 font-semibold'>Leadership & Communication Workshops</h1>
+                            <h1 className='text-[48px] w-[900px] leading-10 font-semibold'>Leadership & Communication Workshops</h1>
                             <span>img</span>
                         </div>
                         <div style={{fontFamily : "Inter"}} className='space-y-8 relative'>
@@ -119,10 +119,10 @@ const Features = () => {
                         
                     </div>
                 </div>
-                <div  className='border mt-1 sticky top-[178px] z-40 border-white'></div>
-                <div className='flex h-[63svh] justify-between bg-[#34856C] sticky top-[178px] z-40'>
+                <div  className='border mt-1 sticky top-[175px] z-40 border-white'></div>
+                <div className='flex h-[63svh] justify-between bg-[#34856C] sticky top-[175px] z-40'>
                     <span className='text-[48px] font-bold'>4.</span>
-                    <div className=' space-y-8 w-[90%]'>
+                    <div className=' space-y-4 w-[90%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
                             <h1 className='text-[48px] w-[636px] font-semibold'>Multi-Language Support</h1>
                             <span>img</span>

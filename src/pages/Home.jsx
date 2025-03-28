@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className='scrollbar-none'>
       <Navbar />
-      <div className='overflow-y-scroll scrollbar-none'>
+      <div  className='overflow-y-scroll scrollbar-none'>
         <div style={{scrollbarWidth : "40px"}} className='h-screen scrollbar-thumb-gray-500 [scrollbar-gutter:stable] [padding-right:10px] scrollbar-track-[#34856C] overflow-y-scroll'>
           <Features className = "sticky top-10" />
         </div>
