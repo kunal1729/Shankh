@@ -7,7 +7,7 @@ const ContactUs = ({x}) => {
 
 
   return (
-    <div id='ContactUs' className='h-screen rounded-t-2xl flex space-x-24 p-[64px] bg-[#34856C]'>
+    <div id='ContactUs' className='h-screen sticky top-0 z-0 rounded-t-2xl flex space-x-24 p-[64px] bg-[#34856C]'>
       <motion.div  className='w-[539px] shadow-lg grid content-end space-y-4 p-6 rounded-2xl h-[630px] bg-cover' style={{ backgroundImage: `url(${blog1})`, x : x }}>
         <h1 style={{fontFamily : "Poppins"}} className='text-[32px] text-white font-bold'>Join the Speech & Leadership Transformation Revolution</h1>
         <button style={{fontFamily : "Poppins"}} className='border w-[199px] rounded-lg font-semibold pt-[10px] text-[16px] pb-[10px] pl-[53px] pr-[53px] text-white border-white'>Learn More</button>

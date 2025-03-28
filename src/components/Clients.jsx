@@ -10,7 +10,7 @@ const Clients = ({opacity}) => {
 
 
   return (
-    <motion.div id='Clients' style={{opacity: opacity}} className='bg-[#F8FAFA] flex flex-col justify-center items-center space-y-8 p-[25px] h-screen'>
+    <motion.div id='Clients' style={{opacity: opacity}} className='bg-[#F8FAFA] flex flex-col sticky top-0 z-0 justify-center items-center space-y-8 p-[25px] h-screen'>
         <div className='flex flex-col items-center'>
             <h1 style={{fontFamily : "Poppins"}} className='text-[64px] font-semibold'>Our Trusted Partners</h1>
             <div className='h-[7px] rounded-full bg-[#FF6B5B] w-[50px]'></div>

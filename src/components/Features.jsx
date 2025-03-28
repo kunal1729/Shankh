@@ -5,15 +5,15 @@ import Hero from './Hero'
 const Features = () => {
 
   return (
-    <div  style={{scrollbarWidth : "100px"}} className='h-full scrollbar scrollbar-thumb-gray-800 scrollbar-track-transparent  overflow-y-scroll'>
-        <Hero className = 'bg-fixed'/>
-        <div className=' h-[20px] -top-1.5 z-0 rounded-t-2xl justify-center flex flex-col  items-center p-2 bg-[#34856C] '>
+    <div  style={{scrollbarWidth : "100px"}} className='h-screen scrollbar scrollbar-thumb-gray-800 scrollbar-track-transparent  overflow-y-scroll'>
+        <Hero className = 'top-0 z-0 sticky'/>
+        <div className=' h-[20px] sticky -top-3 z-10 rounded-t-2xl justify-center flex flex-col  items-center p-2 bg-[#34856C] '>
             <div className=' w-[50px] border-white text-white h-[0.5px]  border-2 '>
             </div>
         </div>
-        <div id='Features' className='bg-[#34856C] space-x-2 text-[#F8FAFA] p-[24px]'>
+        <div id='Features' className='bg-[#34856C] space-x-2 text-[#F8FAFA] '>
             
-            <div className=' z-0' style={{fontFamily : "Poppins"}}>
+            <div className='bg-[#34856C] sticky -top-3 ' style={{fontFamily : "Poppins"}}>
                 <h1 className='font-bold text-[64px] '>Why Choose Shankh?</h1>
                 <div className='border h-[1px] border-white'></div>
             </div>

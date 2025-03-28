@@ -3,7 +3,7 @@ import Team from './Team'
 
 const AboutUs = () => {
   return (
-    <div id='AboutUs' className='bg-[#F8FAFA] bg-fixed flex flex-col justify-center items-center space-y-8 p-[25px] h-screen'>
+    <div id='AboutUs' className='bg-[#F8FAFA] top-0 z-0 sticky bg-fixed flex flex-col justify-center items-center space-y-8 p-[25px] h-screen'>
       <h1 style={{fontFamily : "Poppins"}} className='text-[#FF6B5B] font-semibold text-[64px]'>Meet Our Team</h1>
       <p style={{fontFamily : "Inter"}} className='text-[24px] w-[1052px] text-[#5F6C7B]'>At Shankh, we are a passionate team of AI researchers, communication experts, and leadership coaches dedicated to transforming the way people communicate and lead</p>
       <div style={{fontFamily : "Poppins"}} className='flex content-center space-x-[32px]'>
