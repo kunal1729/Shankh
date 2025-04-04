@@ -27,7 +27,7 @@ const Onboarding = () => {
     console.log(page);
 
   return (
-    <motion.div className='flex space-y-6 flex-col bg-[#F8FAFA] h-screen pr-[73px] pb-[45px] pl-[73px] pt-[45px] '>
+    <motion.div className='flex space-y-4 flex-col bg-[#F8FAFA] h-screen pr-[73px] pb-[45px] pl-[73px] pt-[45px] '>
       <div className='flex justify-between'>
         <span>Shankh</span>
         {page > 0 ? 

@@ -33,7 +33,7 @@ const Onboarding5 = () => {
                 <span>img</span>
                 <span className='text-[18px] text-[#5F6C7B]'>Slightly uncertain</span>
             </div>
-            <div onClick={() => setIsActive4("Not very confident")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "1 hour / week" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
+            <div onClick={() => setIsActive4("Not very confident")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Not very confident" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
                 <span>img</span>
                 <span className='text-[18px] text-[#5F6C7B]'>Not very confident</span>
             </div>
