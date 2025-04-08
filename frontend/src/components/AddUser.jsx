@@ -2,10 +2,15 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useAppContext } from '../context/appContext';
 
 const AddUser = ({setStatus}) => {
 
+    const {orgDetails} = useAppContext();
+
     const [data, setData] = useState({
+        orgId : orgDetails.orgId,
+        orgName : orgDetails.orgName,
         userName : "",
         credits : "",
         email : "",
@@ -13,9 +18,10 @@ const AddUser = ({setStatus}) => {
         phoneNumber : ""
     })
 
+    
+
      const [error, setError] = useState("");
     
-        const navigate = useNavigate();
     
         const handleChange = (e) => {
             console.log(data);
@@ -25,7 +31,8 @@ const AddUser = ({setStatus}) => {
     
         const handleSubmit = async(e) => {
             e.preventDefault();
-            console.log(data);
+
+            console.log(orgDetails);
             try{
                 const url = "http://localhost:3001/api/addUser"
                 const {data: res} = await axios.post(url, data);
@@ -34,7 +41,7 @@ const AddUser = ({setStatus}) => {
                     position: "top-right",
                 });
                 alert("New user created !");
-
+                setStatus("overview")
             }
             catch(error)
             {
@@ -70,7 +77,7 @@ const AddUser = ({setStatus}) => {
         </div>
         <div className='space-y-1 text-[14px]'>
             <h3 className='font-semibold'>Organization Name</h3>
-            <input  fixed className='border-[1px] rounded-md focus:outline-none w-full p-2' placeholder='Enter user name' />
+            <input value={data.orgName} readOnly className='border-[1px] rounded-md focus:outline-none w-full p-2' placeholder='Enter user name' />
         </div>
         <div className='space-y-1 text-[14px]'>
             <h3 className='font-semibold'>Email</h3>

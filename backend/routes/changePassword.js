@@ -6,7 +6,7 @@ require("dotenv").config();
 module.exports = router.post("/", async(req, res) => {
     try{
 
-        const admin = await Admin.findOne({_id : req.body._id});
+        const admin = await Admin.findOne({orgId : req.body.orgId});
         
 
         const validPassword = await bcrypt.compare(
@@ -18,16 +18,15 @@ module.exports = router.post("/", async(req, res) => {
             return res.status(401).send({message : "Invalid Password."})
         }
 
-
-        
         
 
         const data = {
             email : admin.email,
             password : req.body.newPassword,
+            orgId : admin.orgId,
             orgName : admin.orgName,
-            orgType : admin.orgType || null,
-            phoneNumber : admin.phoneNumber || null
+            orgType : admin.orgType,
+            phoneNumber : admin.phoneNumber
         }
         
         const {error} = validate(data);

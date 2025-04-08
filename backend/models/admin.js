@@ -6,6 +6,10 @@ const Joi = require("joi");
 
 const adminSchema = new mongoose.Schema(
     {
+        orgId : {
+            type : String,
+            required : true
+        },
         orgName : {
             type : String,
             required : true
@@ -36,6 +40,7 @@ const Admin = mongoose.model("Admin", adminSchema);
 
 const validate = (data) => {
     const schema = Joi.object({
+        orgId : Joi.string().required().label("Organization Id"),
         orgName : Joi.string().required().label("Organization Name"),
         email : Joi.string().email().required().label("Email"),
         orgType : Joi.string().label("Organization Type"),

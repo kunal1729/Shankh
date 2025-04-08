@@ -6,7 +6,7 @@ import { useAppContext } from '../context/appContext'
 
 const OrgLogin = () => {
 
-    const {setIsAuthenticated, setOrgDetails} = useAppContext()
+    const {setIsAuthenticated, orgDetails, setOrgDetails} = useAppContext()
     const [type, setType] = useState("admin");
 
     const [data, setData] = useState({
@@ -40,6 +40,7 @@ const OrgLogin = () => {
             setIsAuthenticated(true);
             if(type == "admin")
             {
+                console.log(res.data.details)
                 setOrgDetails(res.data.details);
             }
             alert(res.message);

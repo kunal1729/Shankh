@@ -3,14 +3,18 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from 'framer-motion';
+import { v4 as uuidv4 } from 'uuid';
+import { useAppContext } from '../context/appContext';
 
 const OrgSignUp = () => {
 
+    const {setOrgDetails} = useAppContext();
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
     const [data, setData] = useState({
+        orgId : uuidv4(),
         orgName : "",
         email : "",
         password : ""
@@ -36,13 +40,12 @@ const OrgSignUp = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        console.log(data.orgId)
         try{
             const url = "http://localhost:3001/api/admins"
             const {data: res} = await axios.post(url, data);
-            console.log(res.message);
-            toast.success(res.message, {
-                position: "top-right",
-            });
+            setOrgDetails(data);
+            console.log(res.message)
             alert("Admin Registered successfully !")
             navigate("/orgLogin");
         }
@@ -96,7 +99,6 @@ const OrgSignUp = () => {
             </div>
             <span style={{fontFamily : "Inter"}} className='text-[14px] text-center'>Already a member? <NavLink to={'/orgLogin'} className='text-[#34856C]'>Login Now</NavLink></span>
           </motion.div>
-          <ToastContainer/>
     </form>
   )
 }

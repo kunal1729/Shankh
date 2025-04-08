@@ -11,7 +11,7 @@ const AccountSettings = () => {
   const [active, setActive] = useState("changePass")
  
   const [data, setData] = useState({
-    _id : orgDetails._id,
+    orgId : orgDetails.orgId,
     oldPassword : "",
     newPassword : ""
   });
@@ -27,13 +27,19 @@ const AccountSettings = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(data);
+
+        console.log(orgDetails);
         try{
             const url = "http://localhost:3001/api/changePassword"
             const {data: res} = await axios.post(url, data);
-            console.log(res.message);
+            console.log(res.data);
             setOrgDetails(res.data);
             alert(res.message);
+            setData({
+              _id : orgDetails._id,
+              oldPassword : "",
+              newPassword : ""
+            })
         }
         catch(error)
         {
@@ -104,7 +110,8 @@ const AccountSettings = () => {
               />
             </div>
 
-            <div className='font-semibold space-x-[25px]'>
+            <div className='font-semibold grid space-x-[25px]'>
+              <span style={{fontFamily : "Poppins"}} className='text-xs text-red-600'>{error}</span>
               <button style={{fontFamily : "Poppins"}} type='submit' className='pt-[10px] pr-[53px] pb-[10px] pl-[53px] rounded-lg text-white bg-[#34856C]'>
                 Update Password
               </button>

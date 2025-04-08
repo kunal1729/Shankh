@@ -66,13 +66,13 @@ const OrgOverview = ({setStatus, setSelectedUser}) => {
                 </tr>
             </thead>
             <tbody>
-                {userList ? userList.map((item) => {
+                {userList ? userList.filter((item) => item.orgId == orgDetails.orgId).map((item) => {
                     return (
                         <tr className='pt-2 border-b-[1px] border-gray-300 text-center pr-8 pl-8 pb-2 w-full '>
                             <td className='p-[10px] '>{item.userName}</td>
                             <td className='p-[10px] '>{item.credits}</td>
                             <td className='p-[10px] '>{item.credits}</td>
-                            <td className='p-[10px] '>{orgDetails.orgName}</td>
+                            <td className='p-[10px] '>{item.orgName}</td>
                             <td className='p-[10px] '>{item.email}</td>
                             <td className='p-[10px] '>{item.phoneNumber}</td>
                             <td className='p-[10px] '>
