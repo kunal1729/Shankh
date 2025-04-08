@@ -94,7 +94,7 @@ const OrgSignUp = () => {
               <span style={{fontFamily : "Inter"}} className='text-xs text-red-600'>{error}</span>
               <button style={{fontFamily : "Poppins"}} className=' cursor-pointer  text-center rounded-lg bg-[#FF6B5B] text-white font-semibold pr-[53px] text-[16px] pb-[10px] pl-[53px] pt-[10px]'>Register</button>
             </div>
-            <span style={{fontFamily : "Inter"}} className='text-[14px] text-center'>Already a member? <NavLink to={'/Login'} className='text-[#34856C]'>Login Now</NavLink></span>
+            <span style={{fontFamily : "Inter"}} className='text-[14px] text-center'>Already a member? <NavLink to={'/orgLogin'} className='text-[#34856C]'>Login Now</NavLink></span>
           </motion.div>
           <ToastContainer/>
     </form>
