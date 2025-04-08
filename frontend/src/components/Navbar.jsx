@@ -14,7 +14,7 @@ const Navbar = () => {
         <Link style={{fontFamily : "Inter"}} to='Blog' smooth={true} duration={800}>Blog</Link>
         <Link style={{fontFamily : "Inter"}} to='Clients' smooth={true} duration={800}>Clients</Link>
         <Link style={{fontFamily : "Inter"}} to='ContactUs' smooth={true} duration={800}>Contact Us</Link>
-        <NavLink to={'/login'} style={{fontFamily : "Poppins"}} className='pt-[10px] hover:shadow-lg cursor-pointer pb-[10px] pr-[53px] pl-[53px] rounded-md text-sm w-[199px] font-semibold text-white bg-[#34856C] cursor-pointer'>Get Started</NavLink>
+        <NavLink to={'/orgLogin'} style={{fontFamily : "Poppins"}} className='pt-[10px] hover:shadow-lg cursor-pointer pb-[10px] pr-[53px] pl-[53px] rounded-md text-sm w-[199px] font-semibold text-white bg-[#34856C] cursor-pointer'>Get Started</NavLink>
       </div>
     </div>
   )
