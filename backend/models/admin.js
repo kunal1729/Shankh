@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const passwordComplexity = require("joi-password-complexity");
 const Joi = require("joi");
 
-const userSchema = new mongoose.Schema(
+const adminSchema = new mongoose.Schema(
     {
-        userName : {
+        orgName : {
             type : String,
             required : true
         },
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
             type : String,
             required : true
         },
-        credits : {
+        orgType : {
             type : String
         },
         phoneNumber : {
@@ -27,22 +27,22 @@ const userSchema = new mongoose.Schema(
     }
 )
 
-userSchema.methods.generateAuthToken = function(){
+adminSchema.methods.generateAuthToken = function(){
     const token = jwt.sign({_id : this._id}, process.env.JWT_PRIVATE_KEY, {expiresIn : "7d"});
     return token
 }
 
-const User = mongoose.model("User", userSchema);
+const Admin = mongoose.model("Admin", adminSchema);
 
 const validate = (data) => {
     const schema = Joi.object({
-        userName : Joi.string().required().label("User Name"),
+        orgName : Joi.string().required().label("Organization Name"),
         email : Joi.string().email().required().label("Email"),
-        credits : Joi.string().label("Credits"),
+        orgType : Joi.string().label("Organization Type"),
         phoneNumber : Joi.string().label("Phone Number"),
         password : passwordComplexity().required().label("Password")
     })
     return schema.validate(data);
 }
 
-module.exports = {User, validate};
+module.exports = {Admin, validate};

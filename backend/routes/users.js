@@ -106,6 +106,8 @@ const userRoutes = router.post("/", async(req, res) => {
         sendOTP(req, res);
 
         await new User({...req.body, password : hashPassword}).save();
+
+        res.status(200).send({message : "OTP sent successfully ! "})
     }
     catch(error)
     {

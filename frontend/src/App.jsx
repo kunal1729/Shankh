@@ -17,6 +17,9 @@ import Onboarding7 from "./components/Onboarding7";
 import Onboarding8 from "./components/Onboarding8";
 import { AnimatePresence, motion } from "framer-motion";
 import Onboarding9 from "./components/Onboarding9";
+import OrgDashboard from "./pages/OrgDashboard";
+import OrgSignUp from "./pages/OrgSignUp";
+import OrgLogin from "./pages/OrgLogin";
 
 
 const pageVariants = {
@@ -63,6 +66,9 @@ function App() {
               <Route path="step8" element={<PageWrapper><Onboarding8 /></PageWrapper>} />
               <Route path="step9" element={<PageWrapper><Onboarding9 /></PageWrapper>} />
             </Route>
+          <Route path="/orgDashboard" element = {<OrgDashboard/>}/>
+          <Route path="/orgSignUp" element = {<OrgSignUp/>}/>
+          <Route path="/orgLogin" element = {<OrgLogin/>}/>
         </Routes>
       </AnimatePresence>
   )

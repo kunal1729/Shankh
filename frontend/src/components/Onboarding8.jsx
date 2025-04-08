@@ -27,12 +27,20 @@ const Onboarding8 = () => {
             clearInterval(timer);
         }
         return () => clearInterval(timer);
-    }, [isRecording, seconds]);
+    }, [isRecording]);
 
     const handleAudioSave = (recordedBlob) => {
         console.log('Audio recorded:', recordedBlob);
         const url = URL.createObjectURL(recordedBlob.blob);
         setAudioUrl(url);
+        const timestamp = recordedBlob.startTime; // example timestamp
+        const date = new Date(timestamp);const formattedDate = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          
+          console.log(formattedDate);  
         setSeconds(60);
         setIsRecording(false);
     };
@@ -53,7 +61,6 @@ const Onboarding8 = () => {
             <ReactMic
                 record = {isRecording}
                 onStop={handleAudioSave}   
-                onData={handleAudioSave}
                 className='hidden'
             />
             <button 

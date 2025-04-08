@@ -4,35 +4,47 @@ import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import { motion } from 'framer-motion';
 
-const SignUp = () => {
+const OrgSignUp = () => {
 
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
     const [data, setData] = useState({
-        userName : "",
+        orgName : "",
         email : "",
         password : ""
     })
 
+
     const handleChange = (e) => {
+        e.preventDefault();
+        if(e.target.id == "conPassword" && e.target.value != data.password)
+        {
+            setError("Does not match the above password !")
+        }
+        else{
+            setError("");
+        }
+        if(e.target.id == "conPassword")
+        {
+            return;
+        }
         console.log(data);
         setData((prev) => ({...prev, [e.target.id] : e.target.value}));
     }
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(data);
         try{
-            const url = "http://localhost:3001/api/users"
+            const url = "http://localhost:3001/api/admins"
             const {data: res} = await axios.post(url, data);
             console.log(res.message);
             toast.success(res.message, {
                 position: "top-right",
             });
-            alert("OTP sent Successfully!")
-            navigate("/otpLogin", {state : data});
+            alert("Admin Registered successfully !")
+            navigate("/orgLogin");
         }
         catch(error)
         {
@@ -61,23 +73,26 @@ const SignUp = () => {
           <motion.div initial = {{x : 1000}} animate = {{x : 0}} transition={{duration : 0.3, ease : "easeInOut" }}  className='w-[700px] rounded-xl relative pt-[30px] pr-[39px] pb-[30px] bg-white pl-[39px]  flex flex-col space-y-[20px] justify-center h-[450px]'>
             <span className='text-[#34856C]'>Shankh</span>
             <span style={{fontFamily : "Poppins"}} className='text-[20px] font-bold text-[#34856C]'>Create Account</span>
-            <div className='flex justify-between space-x-[23px]' >
-              <div className='grid space-y-1 relative '>
-                  <span style={{fontFamily : "Inter"}} className='text-[14px] absolute -top-5.5 p-2 border-transparent bg-white left-5'>First Name</span>
-                  <input id='userName' onChange={handleChange} value={data.userName} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] w-full' ></input>
+            
+            <div className='grid space-y-1 relative '>
+                  <span style={{fontFamily : "Inter"}} className='text-[14px] absolute -top-5.5 p-2 border-transparent bg-white left-5'>Organization Name</span>
+                  <input id='orgName' onChange={handleChange} value={data.orgName} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] w-full' ></input>
               </div>
-            </div>
             <div className='grid space-y-1 relative '>
                   <span style={{fontFamily : "Inter"}} className='text-[14px] absolute -top-5 p-2 bg-white left-5'>Email</span>
                   <input id='email' onChange={handleChange} value={data.email} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] ' ></input>
               </div>
             <div className='grid space-y-1 relative '>
                 <span style={{fontFamily : "Inter"}} className='text-[14px] absolute -top-5 p-2 bg-white left-5'>Password</span>
-                <input id='password' onChange={handleChange} value={data.password} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] ' ></input>
+                <input id='password' type='password' onChange={handleChange} value={data.password} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] ' ></input>
+            </div>
+            <div className='grid space-y-1 relative '>
+                <span style={{fontFamily : "Inter"}} className='text-[14px] absolute -top-5 p-2 bg-white left-5'>Confirm Password</span>
+                <input id='conPassword' type='password' onChange={handleChange} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] ' ></input>
             </div>
             <div className='flex flex-col space-y-1'>
               <span style={{fontFamily : "Inter"}} className='text-xs text-red-600'>{error}</span>
-              <button style={{fontFamily : "Poppins"}} className=' cursor-pointer  text-center rounded-lg bg-[#FF6B5B] text-white font-semibold pr-[53px] text-[16px] pb-[10px] pl-[53px] pt-[10px]'>Send an OTP</button>
+              <button style={{fontFamily : "Poppins"}} className=' cursor-pointer  text-center rounded-lg bg-[#FF6B5B] text-white font-semibold pr-[53px] text-[16px] pb-[10px] pl-[53px] pt-[10px]'>Register</button>
             </div>
             <span style={{fontFamily : "Inter"}} className='text-[14px] text-center'>Already a member? <NavLink to={'/Login'} className='text-[#34856C]'>Login Now</NavLink></span>
           </motion.div>
@@ -86,4 +101,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default OrgSignUp

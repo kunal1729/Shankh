@@ -3,7 +3,7 @@ import React from 'react'
 
 const Services = () => {
   return (
-    <div id='Services' className=' bt-[#F8FAFA] scrollbar overflow-y-scroll scrollbar-thumb-white scrollbar-track-transparent text-center content-center'>
+    <div id='Services' className=' bg-[#F8FAFA] scrollbar overflow-y-scroll scrollbar-thumb-white scrollbar-track-transparent text-center content-center'>
         <div className='h-screen p-[32px] space-y-32 flex flex-col content-center '>
             <div className='space-y-7'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[64px] font-semibold'>How it Works?</h1>
