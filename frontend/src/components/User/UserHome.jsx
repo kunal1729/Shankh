@@ -389,7 +389,10 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
             </div>
         </div>
         <div className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-            <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
+            <div className='flex'>
+                <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
+                <button className='text-red-500'>View All</button>
+            </div>
             <table style={{fontFamily : "Inter"}} class="w-full text-[18px]">
                 <thead>
                     <tr className='pt-8 pr-8 pl-8 pb-4 text-gray-700 w-full bg-[#E7F0F0] '>
@@ -402,7 +405,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
                 </thead>
                 <tbody>
                     {data ? data.map((item, index) => {
-                        if(index > 4)
+                        if(index < data.length - 5)
                         {
                             return;
                         }
