@@ -1,6 +1,4 @@
-import React from 'react';
-import testData from'./testData.json'
-
+import React, { useEffect, useState } from 'react';
 import {
   RadarChart,
   PolarGrid,
@@ -10,19 +8,31 @@ import {
   PolarRadiusAxis,
 } from 'recharts';
 
-const data = testData.tests.map((item) => Object.entries(item.behaviorInsights).map(([key, value]) => ({
-  subject: key,
-  value: value
-})));
 
-console.log(data[0])
+const SpiderChart = ({testData}) => {
+
+    const [data, setData] = useState([])
 
 
-const Practice = () => {
+    useEffect(() => {
+        if(testData)
+        {
+            setData(Object.entries(testData).map(([key, value]) => ({
+                subject: key,
+                value: value
+                })));
+        }
+
+    }, [testData])
+    
+
+    console.log(testData)
+  
+
   return (
     <div style={{ width: 564, height: 381 }}>
       <ResponsiveContainer>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data[0]}>
+        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid radialLines={false} gridType="polygon" />
           <PolarAngleAxis 
             dataKey="subject"
@@ -73,8 +83,8 @@ const Practice = () => {
           />
           <Radar
             dataKey="value"
-            stroke="#FF6B5B"
-            fill="#FF6B5B"
+            stroke={testData.fluency ? "#F9A826" : "#FF6B5B"}
+            fill={testData.fluency ? "#F9A826" : "#FF6B5B"}
             fillOpacity={0.3}
             dot = {true}
           />
@@ -84,4 +94,4 @@ const Practice = () => {
   );
 };
 
-export default Practice;
+export default SpiderChart;

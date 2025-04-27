@@ -4,22 +4,22 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Practice from "./Practice";
 import OtpLogin from "./pages/OtpLogin";
-import Dashboard from "./pages/Dashboard";
 import Onboarding from "./pages/Onboarding";
-import Onboarding1 from "./components/Onboarding1";
-import Onboarding2 from "./components/Onboarding2";
+import Onboarding1 from "./components/Onboarding/Onboarding1";
+import Onboarding2 from "./components/Onboarding/Onboarding2";
 import { AppProvider } from "./context/appContext";
-import Onboarding3 from "./components/Onboarding3";
-import Onboarding4 from "./components/Onboarding4";
-import Onboarding5 from "./components/Onboarding5";
-import Onboarding6 from "./components/Onboarding6";
-import Onboarding7 from "./components/Onboarding7";
-import Onboarding8 from "./components/Onboarding8";
+import Onboarding3 from "./components/Onboarding/Onboarding3";
+import Onboarding4 from "./components/Onboarding/Onboarding4";
+import Onboarding5 from "./components/Onboarding/Onboarding5";
+import Onboarding6 from "./components/Onboarding/Onboarding6";
+import Onboarding7 from "./components/Onboarding/Onboarding7";
+import Onboarding8 from "./components/Onboarding/Onboarding8";
 import { AnimatePresence, motion } from "framer-motion";
-import Onboarding9 from "./components/Onboarding9";
+import Onboarding9 from "./components/Onboarding/Onboarding9";
 import OrgDashboard from "./pages/OrgDashboard";
 import OrgSignUp from "./pages/OrgSignUp";
 import OrgLogin from "./pages/OrgLogin";
+import UserDashboard from "./pages/userDashboard";
 
 
 const pageVariants = {
@@ -52,7 +52,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/signUp" element={<SignUp/>} />
           <Route path="/otpLogin" element={<OtpLogin/>} />
-          <Route path="/Dashboard" element={<Dashboard/>} />
+          <Route path="/userDashboard" element={<UserDashboard/>} />
           <Route path="/practice" element={<Practice/>} />
             <Route path="/onboarding" element={<Onboarding/>} >
               <Route index element={<PageWrapper><Onboarding1 /></PageWrapper>} />

@@ -6,7 +6,7 @@ import { useAppContext } from '../context/appContext'
 
 const OrgLogin = () => {
 
-    const {setIsAuthenticated, orgDetails, setOrgDetails} = useAppContext()
+    const {setIsAuthenticated, orgDetails, setOrgDetails, setUserDetails} = useAppContext()
     const [type, setType] = useState("admin");
 
     const [data, setData] = useState({
@@ -42,10 +42,15 @@ const OrgLogin = () => {
             {
                 console.log(res.data.details)
                 setOrgDetails(res.data.details);
+                navigate("/orgDashboard");
+            }
+            else
+            {
+                console.log(res.data.user)
+                setUserDetails(res.data.user)
+                navigate("/userDashboard");
             }
             alert(res.message);
-            navigate("/orgDashboard");
-
         }
         catch(error)
         {

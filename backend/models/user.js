@@ -31,7 +31,19 @@ const userSchema = new mongoose.Schema(
         },
         phoneNumber : {
             type : String
-        }
+        },
+        userId : {
+            type : String
+        },
+        DOB : {
+            type : String
+        },
+        location : {
+            type : String
+        },
+        occupation : {
+            type : String
+        },
     }
 )
 
@@ -50,7 +62,11 @@ const validate = (data) => {
         email : Joi.string().email().required().label("Email"),
         credits : Joi.string().label("Credits"),
         phoneNumber : Joi.string().label("Phone Number"),
-        password : passwordComplexity().required().label("Password")
+        password : passwordComplexity().required().label("Password"),
+        userId : Joi.string().label("UserId"),
+        DOB : Joi.string().label("DOB"),
+        location : Joi.string().label("Location"),
+        occupation : Joi.string().label("Occupation")
     })
     return schema.validate(data);
 }

@@ -41,8 +41,11 @@ export const AppProvider = ({ children }) => {
 
   const [orgDetails, setOrgDetails] = useState({});
 
+  const [userDetails, setUserDetails] = useState({});
+
+
   return (
-    <AppContext.Provider value={{orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
+    <AppContext.Provider value={{userDetails, setUserDetails, orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
       {children}
     </AppContext.Provider>
   );

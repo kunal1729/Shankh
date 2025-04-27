@@ -27,11 +27,9 @@ module.exports = router.post("/", async(req, res) => {
             return res.status(401).send({message : "Invalid Email or Password."})
         }
 
-
-
         const token = user.generateAuthToken();
         console.log(user);
-        res.status(200).send({data : {token, user : {_id : user._id , firstName : user.firstName, lastName : user.lastName, email : user.email}}, message : "Logged in successfully."})
+        res.status(200).send({data : {token, user : {_id : user._id, credits : user.credits , userName : user.userName, orgName : user.orgName, email : user.email, DOB : user.DOB || "", location : user.location || "", userId : user.userId || "", occupation : user.occupation || ""}}, message : "Logged in successfully."})
     }
     catch(error)
     {

@@ -14,7 +14,8 @@ const addUserRoutes = require("./routes/addUser")
 const editUserRoutes = require("./routes/editUser")
 const editOrgDetailsRoutes = require("./routes/editOrgDetails");
 const getAdminRoutes = require("./routes/getAdmin")
-const changePasswordRoutes = require("./routes/changePassword")
+const changeAdminPasswordRoutes = require("./routes/changeAdminPassword")
+const changeUserPasswordRoutes = require("./routes/changeUserPassword")
 
 //database connection
 connection();
@@ -35,8 +36,8 @@ app.use("/api/addUser", addUserRoutes);
 app.use("/api/editUser", editUserRoutes);
 app.use("/api/editOrgDetails", editOrgDetailsRoutes);
 app.use("/api/getAdmin", getAdminRoutes);
-app.use("/api/changePassword", changePasswordRoutes);
-
+app.use("/api/changePassword", changeAdminPasswordRoutes);
+app.use("/api/changeUserPassword", changeUserPasswordRoutes);
 
 const port = process.env.PORT || 8080;
 app.listen(port , () => {

@@ -1,10 +1,35 @@
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 @plugin 'tailwind-scrollbar';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+/* Hides the calendar icon and spin button in Firefox */
+input[type="date"] {
+    -moz-appearance: textfield;  /* Removes the native date picker */
+    appearance: none;  /* General reset */
+  }
+  
+  /* Hides the calendar picker in Webkit browsers (Chrome, Safari, Edge) */
+  input.no-calendar::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+  
+  /* Hides the spin button in Webkit browsers */
+  input.no-calendar::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+  }
+  
+  
+/* 
+.language {
+    display: none;
+} */
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
