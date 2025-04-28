@@ -3,7 +3,7 @@ import React from 'react'
 
 const ContactForm = () => {
   return (
-    <div className='flex flex-col justify-center space-y-24 items-center'>
+    <div className='flex text-white  flex-col justify-center space-y-24 items-center'>
         <div className='justify-center text-center'>
             <h1 style={{fontFamily : "Poppins"}} className='text-[48px] font-semibold text-[#FAFBFD]'>Contact Us</h1>
             <p style={{fontFamily : "Inter"}} className='text-[24px] w-[701px] text-white'> For a demo, partnership inquiry, or to learn how we can help you empower voices and unleash potential. </p>
@@ -30,7 +30,7 @@ const ContactForm = () => {
                 </div>
             </div>
             <div className='space-y-1 text-white'>
-                <input className='focus:outline-none' placeholder='Email'></input>
+                <input className='focus:outline-none text-white' placeholder='Email'></input>
                 <div className='border-b-1'></div>
             </div>
             <div className='space-y-1 text-white'>

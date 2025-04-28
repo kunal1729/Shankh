@@ -38,6 +38,7 @@ const OrgLogin = () => {
             const {data : res} = await axios.post(url, data)
             localStorage.setItem("token" , res.data.token);
             setIsAuthenticated(true);
+            console.log(res)
             if(type == "admin")
             {
                 console.log(res.data.details)
@@ -46,6 +47,12 @@ const OrgLogin = () => {
             }
             else
             {
+                if(res.data.user.firstLogin)
+                {
+                    setUserDetails(res.data.user)
+                    navigate("/onboarding")
+                    return;
+                }
                 console.log(res.data.user)
                 setUserDetails(res.data.user)
                 navigate("/userDashboard");

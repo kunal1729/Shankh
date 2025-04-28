@@ -10,6 +10,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
   const test = testData.tests.filter((item) => item.userId == userDetails._id)
   
   const [data, setData] = useState(test);
+  const [viewAll, setViewAll] = useState(false);
 
   const [behaviorAverages, setBehaviorAverages] = useState({});
   
@@ -391,7 +392,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
         <div className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
             <div className='flex'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
-                <button className='text-red-500'>View All</button>
+                <button onClick={() => setViewAll((prev) => !prev)} className='border w-[199px] hover:bg-[#34856C] cursor-pointer hover:text-white rounded-lg font-semibold pt-[10px] text-[16px] pb-[10px] pl-[53px] pr-[53px] text-[#34856C] border-[#34856C]'>{viewAll ? "View Less" : "View All"}</button>
             </div>
             <table style={{fontFamily : "Inter"}} class="w-full text-[18px]">
                 <thead>
@@ -405,7 +406,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
                 </thead>
                 <tbody>
                     {data ? data.map((item, index) => {
-                        if(index < data.length - 5)
+                        if(index < data.length - 5 && !viewAll)
                         {
                             return;
                         }

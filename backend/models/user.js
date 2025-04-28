@@ -44,6 +44,10 @@ const userSchema = new mongoose.Schema(
         occupation : {
             type : String
         },
+        firstLogin : {
+            type : Boolean,
+            default : true
+        },
     }
 )
 

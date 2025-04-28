@@ -29,7 +29,7 @@ const Login = () => {
             const {data : res} = await axios.post(url, data)
             localStorage.setItem("token" , res.data.token);
             setIsAuthenticated(true);
-            navigate("/onboarding");
+            // navigate("/onboarding");
 
             console.log(res.data.user.firstName)
             console.log(res.data.user);

@@ -19,7 +19,7 @@ const Onboarding = () => {
     useEffect(() => {
       if(!isAuthenticated)
       {
-        navigate('/login');
+        navigate('/orgLogin');
       }
     }, [])
     
