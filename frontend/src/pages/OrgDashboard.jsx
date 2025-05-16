@@ -9,6 +9,7 @@ import { useAppContext } from '../context/appContext';
 import { useNavigate } from 'react-router-dom';
 import AccountSettings from '../components/Organization/AccountSettings';
 import { Datepicker } from "flowbite-react";
+import Results from '../components/User/Results';
 
 
 const OrgDashboard = () => {
@@ -78,7 +79,7 @@ const OrgDashboard = () => {
 
         </div>
         {status === "home" ? (
-        <OrgHome startDate = {startDate} endDate = {endDate} language = {language} />
+        <OrgHome setStatus={setStatus} startDate = {startDate} endDate = {endDate} language = {language} />
         ) : status === "overview" ? (
         <OrgOverview setSelectedUser = {setSelectedUser} setStatus={setStatus} />
         ) : status === "addUser" ? (
@@ -88,7 +89,9 @@ const OrgDashboard = () => {
         ) : status === "editUser" ? (
         <EditUser selectedUser = {selectedUser} setStatus={setStatus}/>) :
         status === "settings" ? (
-          <AccountSettings/>) : null
+          <AccountSettings setSelectedUser = {setSelectedUser} setStatus = {setStatus} />) : 
+        status === "results" ? 
+        (<Results/>)  : null
         }
       </div>
     </div>

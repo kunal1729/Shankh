@@ -38,6 +38,7 @@ module.exports = router.post("/", async (req, res) => {
           _id: user._id,
           credits: user.credits,
           userName: user.userName,
+          orgId : user.orgId,
           orgName: user.orgName,
           email: user.email,
           DOB: user.DOB || "",

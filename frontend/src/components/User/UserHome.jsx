@@ -3,13 +3,13 @@ import  testData from '../../testData.json'
 import Chart from './Chart';
 import { useAppContext } from '../../context/appContext';
 import SpiderChart from '../../SpiderChart';
+import axios from 'axios';
 
-const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) => {
+const UserHome = ({language, startDate, endDate, setStatus}) => {
 
-  const {userDetails} = useAppContext();
-  const test = testData.tests.filter((item) => item.userId == userDetails._id)
-  
-  const [data, setData] = useState(test);
+  const {userDetails, setSelectedTest} = useAppContext();
+  const [temp, setTemp] = useState([]);
+  const [data, setData] = useState([]);
   const [viewAll, setViewAll] = useState(false);
 
   const [behaviorAverages, setBehaviorAverages] = useState({});
@@ -17,18 +17,50 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
   const [voiceAverages, setVoiceAverages] = useState({});
 
   useEffect(() => {
-    console.log(data)
-    if(language === "All")
-    {
-      setData(test.filter((item) => new Date(item.date).setHours(0, 0, 0, 0) >= new Date(startDate).setHours(0, 0, 0, 0) && new Date(item.date).setHours(0, 0, 0, 0) <= new Date(endDate).setHours(0, 0, 0, 0)));
-      return;
-    }
-    setData(test.filter((item) => item.language === language && new Date(item.date) >= new Date(startDate) && new Date(item.date) <= new Date(endDate)))
-    console.log(data);
+    const fetchData = async () => {
+        try {
+        const res = await axios.get("http://localhost:3001/api/getAllTests");
+        console.log(res.data.data.filter((item) => item.userId == userDetails._id));
+
+        setTemp(res.data.data.filter((item) => item.userId == userDetails._id));
+        setData(res.data.data.filter((item) => item.userId == userDetails._id))
+        
+        } catch (error) {
+        console.error("Error fetching test data :", error);
+        }
+    };
     
-  }, [language, startDate, endDate])
+    fetchData();
+    
+
+    
+  }, [])
 
   useEffect(() => {
+    if(language == "All") {
+        setData(temp.filter((item) => 
+            new Date(item.date).setHours(0, 0, 0, 0) >= new Date(startDate).setHours(0, 0, 0, 0) &&
+            new Date(item.date).setHours(0, 0, 0, 0) <= new Date(endDate).setHours(0, 0, 0, 0)
+            )
+        );
+        return;
+    }
+
+
+
+    setData(temp.filter((item) => 
+            item.language === language &&
+            new Date(item.date) >= new Date(startDate) &&
+            new Date(item.date) <= new Date(endDate)
+        )
+    );
+
+    console.log("data", data);
+  }, [language, startDate, endDate])
+  
+
+  useEffect(() => {
+
     const newBehaviorAverages = {
         emotionalRegulation: 0,
         confidenceAndPresence: 0,
@@ -390,7 +422,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
             </div>
         </div>
         <div className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-            <div className='flex'>
+            <div className='flex justify-between items-center'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
                 <button onClick={() => setViewAll((prev) => !prev)} className='border w-[199px] hover:bg-[#34856C] cursor-pointer hover:text-white rounded-lg font-semibold pt-[10px] text-[16px] pb-[10px] pl-[53px] pr-[53px] text-[#34856C] border-[#34856C]'>{viewAll ? "View Less" : "View All"}</button>
             </div>
@@ -412,7 +444,7 @@ const UserHome = ({language, startDate, endDate, setStatus, setSelectedTest}) =>
                         }
                         return (
                             <tr className='pt-2 border-b-[1px] border-gray-300 text-center pr-8 pl-8 pb-2 w-full '>
-                                <td className='p-[10px] '>{item.testId}</td>
+                                <td className='p-[10px] '>{item._id}</td>
                                 <td className='p-[10px] '>{item.language}</td>
                                 <td className='p-[10px] '>{item.date}</td>
                                 <td className='p-[10px] '>{item.overallScore}</td>

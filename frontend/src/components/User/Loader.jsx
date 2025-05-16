@@ -2,16 +2,10 @@ import React from 'react'
 import Lottie from 'lottie-react';
 import LoaderAnimation from '../../LoaderAnimation.json'
 
-const Loader = ({setStatus, setIsLoading}) => {
-
-
-  const handleComplete = () => {
-    setIsLoading(false);
-    setStatus("results")
-  }
+const Loader = ({isLoading}) => {
 
   return (
-      <Lottie className='h-[931px] ' animationData={LoaderAnimation} onComplete={handleComplete} loop={false} />
+      <Lottie className='h-[631px] ' animationData={LoaderAnimation}  loop={isLoading} />
   )
 }
 

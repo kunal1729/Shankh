@@ -12,12 +12,14 @@ const UserProfile = () => {
     _id : userDetails._id,
     userName : userDetails.userName,
     userId : userDetails.userId || "",
+    credits : userDetails.credits,
     email : userDetails.email,
     orgName : userDetails.orgName,
     DOB : userDetails.DOB || "",
     location : userDetails.location || "",
     occupation : userDetails.occupation || ""
   });
+  
 
  const [error, setError] = useState("");
 
@@ -62,6 +64,31 @@ const UserProfile = () => {
         }
     }
 
+    const handleRequest = async() => {
+        try{
+            const res = await axios.post("http://localhost:3001/api/requestCredits", {
+                userId : userDetails._id,
+                date : new Date().toLocaleDateString('en-US', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                }),
+                orgId : userDetails.orgId,
+                userName : userDetails.userName,
+                credits : userDetails.credits,
+                orgName : userDetails.orgName,
+                email : userDetails.email,
+                phoneNumber : userDetails.phoneNumber || ""
+            })
+            console.log(res)
+            alert(res.data.message);
+        }
+        catch(error)
+        {
+            console.log("Error requesting credits", error);
+        }
+    }
+
 
   return (
     <form  onSubmit={handleSubmit} className='bg-[#F8FAFA] overflow-y-scroll p-8 h-[89svh] space-y-8'>
@@ -73,8 +100,16 @@ const UserProfile = () => {
         </div>
         <div className='space-y-1 text-[14px]'>
             <h3 className='font-semibold'>ID</h3>
-            <input onChange={handleChange} placeholder = 'Enter your userId' id='userId' value={data.userId} className='border-[1px] text-[#5F6C7B] rounded-md focus:outline-none w-full p-2' />
+            <input onChange={handleChange} placeholder = 'Enter your userId'  value={data.userId} className='border-[1px] text-[#5F6C7B] rounded-md focus:outline-none w-full p-2' />
         </div>
+        <div className='flex justify-between space-x-6 items-end'>
+            <div className='space-y-1 text-[14px]'>
+                <h3 className='font-semibold'>Credits left</h3>
+                <input onChange={handleChange} readonly id='userId' value={data.credits} className='border-[1px] text-[#5F6C7B] rounded-md focus:outline-none w-full p-2' />
+            </div>
+            <button style={{fontFamily : "Poppins"}} onClick = {handleRequest} type='button' className=' w-[300px] cursor-pointer text-center rounded-lg bg-[#FF6B5B] text-white font-semibold pr-[10px] text-[16px] pb-[10px] pl-[10px] pt-[10px]'>Request more credits</button>
+        </div>
+        
         <div className='flex space-x-6'>
             <div className='space-y-1 w-1/2 text-[14px]'>
                 <h3 className='font-semibold'>Email</h3>

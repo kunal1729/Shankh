@@ -3,31 +3,63 @@ import  testData from '../../testData.json'
 import Chart from './Chart';
 import { useAppContext } from '../../context/appContext';
 import SpiderChart from '../../SpiderChart';
+import axios from 'axios';
 
-const OrgHome = ({language, startDate, endDate, setStatus, setSelectedTest}) => {
+const OrgHome = ({language, startDate, endDate, setStatus}) => {
 
-  const {userDetails} = useAppContext();
-  const test = testData.tests
+  const {userDetails, setSelectedTest} = useAppContext();
 
   const [viewAll, setViewAll] = useState(false);
   
-  const [data, setData] = useState(test);
+  const [data, setData] = useState([]);
+
+  const [temp, setTemp] = useState([]);
 
   const [behaviorAverages, setBehaviorAverages] = useState({});
   
   const [voiceAverages, setVoiceAverages] = useState({});
 
   useEffect(() => {
-    console.log(data)
-    if(language === "All")
-    {
-      setData(test.filter((item) => new Date(item.date).setHours(0, 0, 0, 0) >= new Date(startDate).setHours(0, 0, 0, 0) && new Date(item.date).setHours(0, 0, 0, 0) <= new Date(endDate).setHours(0, 0, 0, 0)));
-      return;
-    }
-    setData(test.filter((item) => item.language === language && new Date(item.date) >= new Date(startDate) && new Date(item.date) <= new Date(endDate)))
-    console.log(data);
+    const fetchData = async () => {
+        try {
+        const res = await axios.get("http://localhost:3001/api/getAllTests");
+        console.log(res.data.data);
+
+        setTemp(res.data.data);
+        setData(res.data.data)
+        
+        } catch (error) {
+        console.error("Error fetching test data :", error);
+        }
+    };
     
-  }, [language, startDate, endDate])
+    fetchData();
+    
+
+    
+  }, [])
+
+  useEffect(() => {
+      if(language == "All") {
+          setData(temp.filter((item) => 
+              new Date(item.date).setHours(0, 0, 0, 0) >= new Date(startDate).setHours(0, 0, 0, 0) &&
+              new Date(item.date).setHours(0, 0, 0, 0) <= new Date(endDate).setHours(0, 0, 0, 0)
+              )
+          );
+          return;
+      }
+  
+  
+  
+      setData(temp.filter((item) => 
+              item.language === language &&
+              new Date(item.date) >= new Date(startDate) &&
+              new Date(item.date) <= new Date(endDate)
+          )
+      );
+  
+      console.log("data", data);
+    }, [language, startDate, endDate])
 
   useEffect(() => {
     const newBehaviorAverages = {
@@ -81,6 +113,7 @@ const OrgHome = ({language, startDate, endDate, setStatus, setSelectedTest}) => 
 
   const handleView = (item) => {
     setSelectedTest(item);
+    console.log("h1")
     setStatus("results");
   }
 
@@ -391,7 +424,7 @@ const OrgHome = ({language, startDate, endDate, setStatus, setSelectedTest}) => 
             </div>
         </div>
         <div className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-              <div className='flex justify-between'>
+              <div className='flex = justify-between'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
                 <button onClick={() => setViewAll((prev) => !prev)} className='border w-[199px] hover:bg-[#34856C] cursor-pointer hover:text-white rounded-lg font-semibold pt-[10px] text-[16px] pb-[10px] pl-[53px] pr-[53px] text-[#34856C] border-[#34856C]'>{viewAll ? "View Less" : "View All"}</button>
               </div>
@@ -413,7 +446,7 @@ const OrgHome = ({language, startDate, endDate, setStatus, setSelectedTest}) => 
                         }
                         return (
                             <tr className='pt-2 border-b-[1px] border-gray-300 text-center pr-8 pl-8 pb-2 w-full '>
-                                <td className='p-[10px] '>{item.testId}</td>
+                                <td className='p-[10px] '>{item._id}</td>
                                 <td className='p-[10px] '>{item.language}</td>
                                 <td className='p-[10px] '>{item.date}</td>
                                 <td className='p-[10px] '>{item.overallScore}</td>

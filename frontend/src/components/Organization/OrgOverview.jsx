@@ -57,7 +57,6 @@ const OrgOverview = ({setStatus, setSelectedUser}) => {
             <thead>
                 <tr className='pt-8 pr-8 pl-8 pb-4 text-gray-700 w-full bg-[#E7F0F0] '>
                     <th className='p-[10px] font-medium'>User Name</th>
-                    <th className='p-[10px] font-medium'>Credits Used</th>
                     <th className='p-[10px] font-medium'>Credits Left</th>
                     <th className='p-[10px] font-medium'>Organization</th>
                     <th className='p-[10px] font-medium'>Email</th>
@@ -70,7 +69,6 @@ const OrgOverview = ({setStatus, setSelectedUser}) => {
                     return (
                         <tr className='pt-2 border-b-[1px] border-gray-300 text-center pr-8 pl-8 pb-2 w-full '>
                             <td className='p-[10px] '>{item.userName}</td>
-                            <td className='p-[10px] '>{item.credits}</td>
                             <td className='p-[10px] '>{item.credits}</td>
                             <td className='p-[10px] '>{item.orgName}</td>
                             <td className='p-[10px] '>{item.email}</td>

@@ -69,8 +69,8 @@ const AccountSettings = () => {
       
       <div className='p-[40px] space-y-[30px] bg-white rounded-lg'>
         <div style={{fontFamily : "Poppins"}} className='font-semibold flex space-x-4'>
-            <button className={`p-2 ${active == "changePass" ? "border-b-3 border-[#34856C] text-[#34856C]" : null}`} onClick={() => setActive("changePass")}>Change Password</button>
-            <button className={`p-2 ${active == "notifications" ? "border-b-3 border-[#34856C] text-[#34856C]" : null}`} onClick={() => setActive("notifications")}>Notifications</button>
+            <button type = "button" className={`p-2 ${active == "changePass" ? "border-b-3 border-[#34856C] text-[#34856C]" : null}`} onClick={() => setActive("changePass")}>Change Password</button>
+            <button type = "button" className={`p-2 ${active == "notifications" ? "border-b-3 border-[#34856C] text-[#34856C]" : null}`} onClick={() => setActive("notifications")}>Notifications</button>
         </div>
         <div>
         {active === "changePass" ? (
@@ -113,7 +113,7 @@ const AccountSettings = () => {
 
             <div className='font-semibold grid space-x-[25px]'>
               <span style={{fontFamily : "Poppins"}} className='text-xs text-red-600'>{error}</span>
-              <button style={{fontFamily : "Poppins"}} type='submit' className='pt-[10px] pr-[53px] pb-[10px] pl-[53px] rounded-lg text-white bg-[#34856C]'>
+              <button type = "submit" style={{fontFamily : "Poppins"}} type='submit' className='pt-[10px] pr-[53px] pb-[10px] pl-[53px] rounded-lg text-white bg-[#34856C]'>
                 Update Password
               </button>
             </div>

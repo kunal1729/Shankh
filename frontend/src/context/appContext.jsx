@@ -43,9 +43,13 @@ export const AppProvider = ({ children }) => {
 
   const [userDetails, setUserDetails] = useState({});
 
+  const [transcript, setTranscript] = useState("");
+
+  const [selectedTest, setSelectedTest] = useState({});
+
 
   return (
-    <AppContext.Provider value={{userDetails, setUserDetails, orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
+    <AppContext.Provider value={{selectedTest, setSelectedTest,userDetails, setUserDetails, orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
       {children}
     </AppContext.Provider>
   );

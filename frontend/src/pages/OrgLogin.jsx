@@ -3,11 +3,13 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import axios from "axios"
 import { motion } from 'framer-motion'
 import { useAppContext } from '../context/appContext'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const OrgLogin = () => {
 
     const {setIsAuthenticated, orgDetails, setOrgDetails, setUserDetails} = useAppContext()
     const [type, setType] = useState("admin");
+    const [showPassword, setShowPassword] = useState(false);
 
     const [data, setData] = useState({
         email : "",
@@ -92,14 +94,36 @@ const OrgLogin = () => {
         </div>
         <div className='grid space-y-1'>
             <span style={{fontFamily : "Inter"}} className='text-[14px]'>Password</span>
-            <input id = "password" onChange={handleChange} value={data.password} className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] w-[300px]' placeholder='Enter your password'></input>
+            <div style={{ position: "relative", width: "290px" }}>
+                <input
+                    id = "password" 
+                    onChange={handleChange}     
+                    value={data.password} 
+                    className='border-[1px] focus:outline-none h-[46px] pt-[11px] pr-[15px] pb-[11px] pl-[15px] w-[300px]' 
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                />
+                <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                    position: "absolute",
+                    right: "0",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer"
+                    }}
+                >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+            </div>
+
         </div>
         <div className='flex space-x-10'>
-            <div className='flex space-x-2'>
+            <div className='flex items-center space-x-2'>
                 <input onClick={() => setType("admin")} checked = {type == "admin"} type='radio' />
                 <span>Admin</span>
             </div>
-            <div className='flex space-x-2'>
+            <div className='flex items-center space-x-2'>
                 <input onClick={() => setType("user")} checked = {type == "user"} type='radio' />
                 <span>User</span>
             </div>

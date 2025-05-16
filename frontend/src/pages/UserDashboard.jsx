@@ -9,22 +9,24 @@ import UserProfile from '../components/User/UserProfile';
 import Activity from '../components/User/Activity';
 import Results from '../components/User/Results';
 import UserHome from '../components/User/UserHome';
+import axios from 'axios';
 
 const UserDashboard = () => {
 
     const [status, setStatus] = useState("home");
-    const {isAuthenticated, userDetails} = useAppContext();
+    const {isAuthenticated, userDetails, setUserDetails} = useAppContext();
 
     const [selectedUser, setSelectedUser] = useState({});
 
     const navigate = useNavigate();
+
 
     
     const [language, setLanguage] = useState("All");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
-    const [selectedTest, setSelectedTest] = useState({});
+    
 
     const handleLanguage = (e) => {
       setLanguage(e.target.value);
@@ -36,6 +38,9 @@ const UserDashboard = () => {
     const handleEndDate = (date) => {
       setEndDate(date)
     }
+
+    
+    
 
 
     const [blurBg, setBlurBg] = useState(false);
@@ -73,15 +78,15 @@ const UserDashboard = () => {
             </div>
         </div>
         {status === "home" ? (
-        <UserHome setSelectedTest = {setSelectedTest} setStatus = {setStatus} startDate = {startDate} endDate = {endDate} language = {language} />
+        <UserHome  setStatus = {setStatus} startDate = {startDate} endDate = {endDate} language = {language} />
         ) : status === "activity" ? (
-        <Activity setStatus = {setStatus} />
+        <Activity  setStatus = {setStatus} />
         ) : status === "profile" ? (
         <UserProfile />
         ) : status === "settings" ? (
           <AccountSettings/>
         ) : status === "results" ? (
-          <Results selectedTest = {selectedTest} status = {status}/>
+          <Results  status = {status}/>
         ) : null}
       </div>
     </div>
