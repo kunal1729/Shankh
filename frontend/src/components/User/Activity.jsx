@@ -83,7 +83,6 @@ const handleAudioSave = async(recordedBlob) => {
       return;
     }
 
-
     setIsLoading(true);
 
     const combinedBlob = new Blob(recordedChunks, { type: 'audio/wav' });
@@ -92,16 +91,17 @@ const handleAudioSave = async(recordedBlob) => {
     });
     
     try {
-
-
-
       const formData = new FormData();
       formData.append("file", audioFile); 
+      formData.append("language", "en"); 
+
       const response = await axios.post("https://cruvss-fast-api.hf.space/analyze_all/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+
+      console.log(response.data)
 
       const test = {
         "userId" : userDetails._id,
@@ -110,12 +110,12 @@ const handleAudioSave = async(recordedBlob) => {
           month: 'long',
           year: 'numeric',
         }),
-        "language" : "English",
+        "language" : response.data["Detected Language"],
         "voiceInsights" : {
           "fluency" : response.data.fluency.fluency_score,
           "toneModulation" : response.data.tone.speech_dynamism_score,
           "clarity" : response.data.vcs["Voice Clarity Sore"],
-          "fillerWords" : response.data.filler_words.total_fillers
+          "fillerWords" : response.data.filler_words.filler_score
         },
         "behaviorInsights": {
           "emotionalRegulation": response.data.vers["VERS Score"],
@@ -124,31 +124,27 @@ const handleAudioSave = async(recordedBlob) => {
           "engagement": response.data.ves["ves"]
         },
         "fillerWordsUsed" : response.data.filler_words.total_fillers,
-        "transcript" : response.data.transcript
+        "transcript" : response.data.transcript,
+        "overallScore" : response.data.sank_score
       }
 
       console.log(test)
 
-      const res = await axios.post("http://localhost:3001/api/addTest", test)
-
-      
-      console.log(res);
-
-      const res2 = await axios.post("http://localhost:3001/api/editCredits", {
-        _id : userDetails._id,
-        credits : userDetails.credits - 10
-      })
-
+      const [res, res2] = await Promise.all([
+        axios.post("http://localhost:3001/api/addTest", test),
+        axios.post("http://localhost:3001/api/editCredits", {
+          _id: userDetails._id,
+          credits: userDetails.credits - 10
+        })
+      ]);
 
 
       setSelectedTest(res.data.data);
       console.log(response)
-      setTranscript(response.data.transcript);
+      setStatus("results")
     } catch (error) {
-      console.error("Transcription error:", error);
+      console.error("Error:", error.response.data.detail);
     }
-    
-    setStatus("results")
 
   }
 

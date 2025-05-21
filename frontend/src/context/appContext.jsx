@@ -14,7 +14,8 @@ export const AppProvider = ({ children }) => {
     goals : [],
     skillSet : [],
     duration : "",
-    confidence : ""
+    confidence : "",
+    behavior : ""
   })
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,6 +40,8 @@ export const AppProvider = ({ children }) => {
 
   const [isActive4, setIsActive4] = useState("");
 
+  const [isActive5, setIsActive5] = useState("");
+
   const [orgDetails, setOrgDetails] = useState({});
 
   const [userDetails, setUserDetails] = useState({});
@@ -49,7 +52,7 @@ export const AppProvider = ({ children }) => {
 
 
   return (
-    <AppContext.Provider value={{selectedTest, setSelectedTest,userDetails, setUserDetails, orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
+    <AppContext.Provider value={{isActive5, setIsActive5,selectedTest, setSelectedTest,userDetails, setUserDetails, orgDetails, setOrgDetails, isAuthenticated, setIsAuthenticated, page, setPage , features, setFeatures, isActive1, setIsActive1, isActive2, setIsActive2, isActive3, setIsActive3, isActive4, setIsActive4 }}>
       {children}
     </AppContext.Provider>
   );

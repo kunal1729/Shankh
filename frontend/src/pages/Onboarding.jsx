@@ -16,12 +16,12 @@ const Onboarding = () => {
         navigate(-1);
     }
 
-    useEffect(() => {
-      if(!isAuthenticated)
-      {
-        navigate('/orgLogin');
-      }
-    }, [])
+    // useEffect(() => {
+    //   if(!isAuthenticated)
+    //   {
+    //     navigate('/orgLogin');
+    //   }
+    // }, [])
     
 
     console.log(page);
@@ -46,8 +46,12 @@ const Onboarding = () => {
             <span className='text-[24px] text-[#34856C]'>{Math.ceil(page * 100/9)}% complete</span>
         </div>
         <div className='h-[10px] rounded-full bg-[#D9E0E6]'>
-            <div style={{ width: `${Math.ceil((page * 100) / 9)}%` }} className="bg-[#34856C] rounded-full h-[10px]"></div>
+          <div 
+            style={{ width: `${Math.ceil(page * 100 / 9)}%` }} 
+            className='h-[10px] rounded-full bg-[#34856C]'>
+          </div>
         </div>
+
       </div>
       <Outlet />
     </motion.div>

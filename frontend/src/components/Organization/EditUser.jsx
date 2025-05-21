@@ -65,12 +65,15 @@ const EditUser = ({selectedUser, setStatus}) => {
         }
     }
 
-    const handleAddCredits = async() => {
-        console.log(typeof(data.credits));
-        const newCredits = String(Number(data.credits) + 100);
-        console.log(newCredits)
-        setData((prev) => ({ ...prev, credits: newCredits }));
-    }
+    const handleAddCredits = () => {
+        setData(prev => ({
+            ...prev,
+            credits: Number(prev.credits || 0) + 100
+        }));
+    };
+
+    console.log(data.credits)
+
 
   return (
     <form onSubmit={handleSubmit} className='bg-[#F8FAFA] overflow-y-scroll p-8 h-[89svh] space-y-8'>
@@ -83,7 +86,7 @@ const EditUser = ({selectedUser, setStatus}) => {
         <div className='space-y-1 text-[14px]'>
             <h3 className='font-semibold'>Credits Left</h3>
             <div className='flex justify-between items-center'>
-                <input readOnly onChange={handleChange} id='credits' value={data.credits} className='border-[1px] rounded-md focus:outline-none w-1/2 p-2' placeholder='Enter number of credits' />
+                <input readOnly onChange={handleChange} id='credits' value={Number(data.credits).toLocaleString()} className='border-[1px] rounded-md focus:outline-none w-1/2 p-2' placeholder='Enter number of credits' />
                 <button style={{fontFamily : "Poppins"}}  type='button' onClick={handleAddCredits} className=' w-[300px] cursor-pointer text-center rounded-lg bg-[#FF6B5B] text-white font-semibold pr-[10px] text-[16px] pb-[10px] pl-[10px] pt-[10px]'>Add 100 credits</button>
             </div>
         </div>

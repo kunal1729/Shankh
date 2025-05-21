@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import  testData from '../../testData.json'
 import Chart from './Chart';
 import { useAppContext } from '../../context/appContext';
 import SpiderChart from '../../SpiderChart';
@@ -447,7 +446,7 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                                 <td className='p-[10px] '>{item._id}</td>
                                 <td className='p-[10px] '>{item.language}</td>
                                 <td className='p-[10px] '>{item.date}</td>
-                                <td className='p-[10px] '>{item.overallScore}</td>
+                                <td className='p-[10px] '>{Math.ceil(item.overallScore)}</td>
                                 <td className='p-[10px] '>
                                     <button onClick={() => handleView(item)} className='p-[10px] cursor-pointer text-white rounded-lg bg-[#34856C]'>View</button>
                                 </td>
