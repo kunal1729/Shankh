@@ -1,6 +1,23 @@
 services:
   - type: web
-    name: shankh-app
+    name: backend
     env: docker
     plan: free
-    dockerComposePath: ./docker-compose.yml
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    port: 3001
+    restartPolicy: unless-stopped
+    envVars:
+      - key: EXAMPLE_ENV_VAR
+        value: example_value
+
+  - type: web
+    name: frontend
+    env: docker
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    port: 5173
+    restartPolicy: unless-stopped
+    dependsOn:
+      - backend
