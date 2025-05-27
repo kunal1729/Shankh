@@ -19,7 +19,7 @@ import Onboarding9 from "./components/Onboarding/Onboarding9";
 import OrgDashboard from "./pages/OrgDashboard";
 import OrgSignUp from "./pages/OrgSignUp";
 import OrgLogin from "./pages/OrgLogin";
-import UserDashboard from "./pages/userDashboard";
+import UserDashboard from "./pages/UserDashboard";
 
 
 const pageVariants = {
