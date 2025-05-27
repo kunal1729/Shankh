@@ -1,29 +1,20 @@
-# Build stage
-FROM node:18-alpine AS builder
+# frontend/Dockerfile
 
-# Set working directory
+FROM node:18-alpine
+
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy dependency files first and install
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install
 
-
-# Copy app source code and build it
+# Copy full source
 COPY . .
+
+# Build frontend (Vite -> dist/)
 RUN npm run build
 
-# Production stage with nginx
-FROM nginx:alpine
-
-# Copy the build output to nginx html directory
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Copy custom nginx config (optional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Serve dist/ folder
+RUN npm install -g serve
+EXPOSE 5173
+CMD ["serve", "-s", "dist", "-l", "5173"]

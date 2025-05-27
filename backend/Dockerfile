@@ -1,18 +1,13 @@
-# Use official Node.js image
-FROM node:18
+# backend/Dockerfile
 
-# Create app directory
+FROM node:18-alpine
+
 WORKDIR /app
 
-# Copy package.json and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy app source code
 COPY . .
 
-# Expose backend port
-EXPOSE 3001
-
-# Run the app
+EXPOSE 8080
 CMD ["npm", "start"]

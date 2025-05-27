@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: app-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app:cached
+      - /app/node_modules
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: app-frontend
+    ports:
+      - "5173:5173"
+    # REMOVE volumes to avoid overwriting /app/dist inside container
+    # volumes:
+    #   - ./frontend:/app:cached
+    #   - /app/node_modules
+    restart: unless-stopped
+    depends_on:
+      - backend
