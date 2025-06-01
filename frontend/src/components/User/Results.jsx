@@ -42,7 +42,7 @@ const Results = () => {
   console.log(selectedTest);
 
   return (
-    <div className='pl-[20px] space-y-4 h-[88svh] overflow-y-scroll bg-[#F8FAFA] pr-[20px] pt-[32px] pb-[20px]'>
+    <div className='pl-[20px] space-y-4 h-[88svh] overflow-y-scroll w-[calc(100vw-305px)] bg-[#F8FAFA] pr-[20px] pt-[32px] pb-[20px]'>
         <div ref = {page1Ref} className='flex flex-col space-y-4'>
             <div className='bg-white space-y-2 rounded-lg shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
                 <div className='flex justify-between items-center'>

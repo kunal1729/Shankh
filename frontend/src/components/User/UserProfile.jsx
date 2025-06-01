@@ -91,7 +91,7 @@ const UserProfile = () => {
 
 
   return (
-    <form  onSubmit={handleSubmit} className='bg-[#F8FAFA] overflow-y-scroll p-8 h-[89svh] space-y-8'>
+    <form  onSubmit={handleSubmit} className='bg-[#F8FAFA] w-[calc(100vw-305px)] overflow-y-scroll p-8 h-[89svh] space-y-8'>
       <h1 style={{fontFamily : "Poppins"}} className='font-semibold text-[32px]'>Profile</h1>
       <div style={{fontFamily : "Poppins"}} className='p-[40px]  space-y-[30px] bg-white rounded-lg'>
         <div className='space-y-1 text-[14px]'>

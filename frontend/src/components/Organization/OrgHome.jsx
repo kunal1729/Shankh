@@ -118,7 +118,7 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
   }
 
   return (
-    <div className='bg-[#E7F0F0] h-[89svh] p-2 overflow-y-scroll'>
+    <div className='bg-[#E7F0F0] h-[89svh] p-2 w-[calc(100vw-200px)] overflow-y-scroll'>
       <div className='bg-white shadow-md p-4 rounded-lg space-y-[20px]'>
         <h3 style={{fontFamily : "Poppins"}} className='text-[18px] font-semibold'>Here is summary of user scores</h3>
         <div style={{fontFamily : "Poppins"}} className='grid gap-4 p-2 grid-cols-4'>

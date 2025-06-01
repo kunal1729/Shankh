@@ -1,4 +1,10 @@
 import React from 'react'
+import prop1 from '../../assets/prop1.svg'
+import prop2 from '../../assets/prop2.svg'
+import prop3 from '../../assets/prop3.svg'
+import prop4 from '../../assets/prop4.svg'
+import prop5 from '../../assets/prop5.svg'
+import prop6 from '../../assets/prop6.png'
 
 
 const Services = () => {
@@ -45,36 +51,36 @@ const Services = () => {
                 <span style={{fontFamily : "Inter"}} className='text-[24px] w-[898px] text-[#5F6C7B]'>Shankh is designed to help diverse users achieve their leadership, communication and emotional wellbeing goals</span>
             </div>
             <div className='grid  grid-cols-3 gap-x-[70px] gap-y-[8px]'>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop1}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Students & Educators</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>Improve classroom participation, debate skills, and public speaking
                     confidence</p>
                 </div>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop2}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Professionals & Corporates</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>Get real-time feedback on pronunciation, tone, pace, and fluency to improve your communication skills effectively.</p>
                 </div>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop3}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Public Speakers & Entrepreneur</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>
                     Get real-time feedback on pronunciation, tone, pace, and fluency to improve your communication skills effectively.</p>
                 </div>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop4}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Actors & Voice Artists</h1>
                     <p  style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>Train articulation, tone modulation, and emotional expression for a  professional edge</p>
                 </div>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop5}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Individuals with Speech & Communication Goals</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>Build confidence in speech clarity,
                     articulation, and fluency improvement.</p>
                 </div>
-                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col content-center'>
-                    <span>icon</span>
+                <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
+                    <img className='w-[56px] h-[56px]' src={prop6}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Speech Coaches & Therapist</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'> Integrate AI-driven insights into speech development programs.</p>
                 </div>

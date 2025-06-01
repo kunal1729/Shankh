@@ -48,7 +48,7 @@ const BlogCard = () => {
             <motion.div 
             whileHover={{backgroundSize : "450px"}}
             transition={{ease : "easeInOut", duration : 0.5}}
-            className='w-[325px] brightness-75 cursor-pointer rounded-3xl shadow-xl space-y-2  content-end h-[439px] p-2 text-[#F8FAFA] ' style={{ backgroundImage: `url(${item.img})` , backgroundSize : "325px" }}>
+            className='w-[300px] brightness-75 cursor-pointer rounded-3xl shadow-xl space-y-2  content-end h-[439px] p-2 text-[#F8FAFA] ' style={{ backgroundImage: `url(${item.img})` , backgroundSize : "325px" }}>
                 <p style={{fontFamily : "Poppins"}} className='text-[20px] font-semibold'>{item.title}</p>
                 <div className='flex items-center text-white justify-between'>
                     <span style={{fontFamily : "Inter"}} className='text-[18px]'>{item.date}</span>

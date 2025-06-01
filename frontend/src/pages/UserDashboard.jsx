@@ -48,11 +48,10 @@ const UserDashboard = () => {
 
 
   return (
-    <div className='flex h-screen '>
+    <div className='flex h-screen w-screen'>
       <Sidebar status = {status} setStatus = {setStatus} />
-      <div className='w-full'>
-        
-        <div className='pl-[20px]  justify-between shadow-md h-[80px] items-center flex space-x-[40px] pt-[14px] pb-[14px] pr-[20px]'>
+      <div className=''>
+        <div className='pl-[20px] w-full justify-between shadow-md h-[80px] items-center flex space-x-[40px] pt-[14px] pb-[14px] pr-[20px]'>
             {status == "activity" ? 
             <div className='w-[230px] rounded-lg h-[50px] bg-[#D9E0E6] text-[18px] pt-[10px] pl-[13px] pb-[10px] pr-[13px]'>
               <h1 className='text-gray-600'>Credit available : <span className='text-[#34856C]'>{userDetails.credits}</span></h1>

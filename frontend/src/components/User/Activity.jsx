@@ -165,10 +165,10 @@ const handleAudioSave = async(recordedBlob) => {
   console.log(audioFile)
 
   return ( 
-  <div className='bg-[#E7F0F0] overflow-y-scroll flex flex-col items-start p-8 h-[89svh] w-full space-y-4'>
+  <div className='bg-[#E7F0F0] overflow-y-scroll flex flex-col items-start p-8 h-[89svh] w-[calc(100vw-300px)] space-y-4'>
     <h1  style={{fontFamily : "Poppins"}} className='font-semibold text-[32px]'>Activity</h1>
     {isLoading == false ? 
-    <div className='flex w-[1007px] items-start text-start flex-col space-y-[37px] justify-center '> 
+    <div className='flex w-full items-start text-start flex-col space-y-[37px] justify-center '> 
       <div className='rounded-2xl w-[1007px]  text-center shadow-md space-y-[42px] pb-[29px] pr-[24px] pt-[29px] pl-[24px] flex flex-col bg-white'>
         <h1 style={{fontFamily : "Poppins"}} className='text-[#34856C] leading-10 text-[32px] font-semibold'>Speak on any topic for <span className='text-[#FF6B5B]'>30</span> sec </h1>
         <p style={{fontFamily : "Inter"}} className='text-[18px] text-[#5F6C7B]'>Suggestion: What was the most memorable incident that happened in this month?</p>
@@ -185,7 +185,9 @@ const handleAudioSave = async(recordedBlob) => {
             className='bg-green-500 text-white px-4 py-2 rounded-lg'>
             {isRecording ? 'Stop' : 'Start'} </button>
           </div>
-          <button onClick={handleReset}>Reset</button> 
+           <button
+            onClick={handleReset}
+            className='bg-red-500 text-white px-4 py-2 rounded-lg'> Reset </button>
           </div> 
         <span className=' italic text-[#5F6C7B] text-[14px]'>Note: Each Assessment charge is 10 credits</span> 
       </div> 

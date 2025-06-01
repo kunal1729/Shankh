@@ -49,7 +49,7 @@ const OrgDashboard = () => {
 
 
   return (
-    <div className='flex h-screen '>
+    <div className='flex h-screen w-[calc(100vw-300px)]'>
       <Sidebar status = {status} setStatus = {setStatus} />
       <div className='w-full'>
         

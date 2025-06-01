@@ -64,7 +64,7 @@ const AccountSettings = () => {
   
 
   return (
-    <form onSubmit={handleSubmit} className='bg-[#F8FAFA] overflow-y-scroll p-8 h-[89svh] space-y-8'>
+    <form onSubmit={handleSubmit} className='bg-[#F8FAFA] overflow-y-scroll p-8 h-[89svh] w-[calc(100vw-305px)] space-y-8'>
       <h1  style={{fontFamily : "Poppins"}} className='font-semibold text-[32px]'>Account Settings</h1>
       
       <div className='p-[40px] space-y-[30px] bg-white rounded-lg'>

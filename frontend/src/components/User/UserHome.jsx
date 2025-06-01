@@ -115,32 +115,32 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
   }
 
   return (
-    <div className='bg-[#E7F0F0] h-[89svh] p-2 overflow-y-scroll'>
-      <div className='bg-white shadow-md p-4 rounded-lg space-y-[20px]'>
+    <div className='bg-[#E7F0F0] h-[89svh] w-full overflow-x-hidden p-2 overflow-y-scroll'>
+      <div className='bg-white w-[calc(100vw-305px)] shadow-md p-4 rounded-lg space-y-[20px]'>
         <h3 style={{fontFamily : "Poppins"}} className='text-[18px] font-semibold'>Here is summary of user scores</h3>
         <div style={{fontFamily : "Poppins"}} className='grid gap-4 p-2 grid-cols-4'>
-          <div  className='w-[254px] drop-shadow-lg  border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] pt-[22px] h-[119px]'>
+          <div  className='w-[230px] drop-shadow-lg  border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] pt-[22px] h-[119px]'>
             <div  className='flex'>
               <span className='font-semibold text-[#5F6C7B] text-[16px]'>Total Attempts</span>
               <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
             </div>
             <span className='text-[24px] font-semibold'>{data.length}</span>
           </div>
-          <div className='w-[254px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
+          <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
             <div className='flex'>
               <span className='font-semibold text-[#5F6C7B] text-[16px]'>Average Total Score</span>
               <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
             </div>
             <span className='text-[24px] font-semibold'>{Math.ceil(vocalAverage + behaviourAverage)/2}%</span>
           </div>
-          <div className='w-[254px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
+          <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
             <div className='flex'>
               <span className='font-semibold text-[#5F6C7B] text-[16px]'>Vocal Insights Average</span>
               <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
             </div>
             <span className='text-[24px] font-semibold'>{Math.ceil(vocalAverage)}%</span>
           </div>
-          <div className='w-[284px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
+          <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
             <div className='flex'>
               <span className='font-semibold text-[#5F6C7B] text-[16px]'>Behaviour Insights Average</span>
               <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>

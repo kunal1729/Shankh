@@ -1,8 +1,8 @@
 import React from 'react'
 import Hero from './Hero'
-import point1 from '../../assets/point1.svg'
-import point2 from '../../assets/point2.svg'
-import point3 from '../../assets/point3.svg'
+import point1 from '../../assets/point1.png'
+import point2 from '../../assets/point2.png'
+import point3 from '../../assets/point3.png'
 import point4 from '../../assets/point4.svg'
 
 
@@ -22,7 +22,7 @@ const Features = () => {
                 <div className='border h-[1px] border-white'></div>
             </div>
             <div className='h-full'>
-                <div className='flex h-[93svh] z-10 p-8 sticky bg-[#34856C] justify-between top-0'>
+                <div className='flex items-start h-[93svh] z-10 p-8 sticky bg-[#34856C] justify-between top-0'>
                     <span className='text-[48px] font-bold'>1.</span>
                     <div className=' space-y-8 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
@@ -57,7 +57,7 @@ const Features = () => {
                     
                 </div>
                 <div  className='border z-20 sticky top-[92px] border-white'></div> 
-                <div className='flex h-[83svh] pt-1 p-8 z-20 sticky top-[94px]  justify-between  bg-[#34856C] '>
+                <div className='flex items-start h-[83svh] pt-1 p-8 z-20 sticky top-[94px]  justify-between  bg-[#34856C] '>
                     <span className='text-[48px] font-bold'>2.</span>
                     <div className=' space-y-8 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
@@ -90,7 +90,7 @@ const Features = () => {
                     </div>
                 </div>
                 <div  className='border sticky top-[158px] z-30 border-white'></div> 
-                <div className='flex h-[73svh] pt-1 p-8 justify-between bg-[#34856C] sticky top-[162px] z-30'>
+                <div className='flex items-start h-[73svh] pt-1 p-8 justify-between bg-[#34856C] sticky top-[162px] z-30'>
                     <span className='text-[48px] font-bold'>3.</span>
                     <div className=' space-y-8 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
@@ -124,7 +124,7 @@ const Features = () => {
                     </div>
                 </div>
                 <div  className='border mt-1 sticky top-[210px] z-40 border-white'></div>
-                <div className='flex h-[61svh] pt-1 p-8 justify-between bg-[#34856C] sticky top-[210px] z-40'>
+                <div className='flex items-start h-[61svh] pt-1 p-8 justify-between bg-[#34856C] sticky top-[210px] z-40'>
                     <span className='text-[48px] font-bold'>4.</span>
                     <div className=' space-y-4 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
