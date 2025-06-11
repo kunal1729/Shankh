@@ -55,7 +55,7 @@ const Features = () => {
                     
                 </div>
                 <div  className='border z-20 sticky top-[75px] border-white'></div> 
-                <div className='flex h-[90svh] items-start pt-1 p-8 z-20 sticky top-[81px]  justify-between  bg-[#34856C] '>
+                <div className='flex h-[90svh] items-start pl-8 pr-8 z-20 sticky top-[81px]  justify-between  bg-[#34856C] '>
                     <span className='text-[48px] font-bold'>2.</span>
                     <div className=' space-y-8 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
@@ -88,11 +88,11 @@ const Features = () => {
                     </div>
                 </div>
                 <div  className='border sticky top-[160px] z-30 border-white'></div> 
-                <div className='flex h-[80svh] items-start pt-1 p-8 justify-between bg-[#34856C] sticky top-[172px] z-30'>
+                <div className='flex h-[80svh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[172px] z-30'>
                     <span className='text-[48px] font-bold'>3.</span>
                     <div className=' space-y-8 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
-                            <h1 className='text-[48px] w-[900px] leading-10 font-semibold'>Leadership & Communication Workshops</h1>
+                            <h1 className='text-[48px] w-[900px] leading-12 font-semibold'>Leadership & Communication Workshops</h1>
                             <img src={point3}></img>
                         </div>
                         <div style={{fontFamily : "Inter"}} className='space-y-8 relative'>
@@ -123,7 +123,7 @@ const Features = () => {
                 </div>
                 
                 <div  className='border sticky top-[280px] z-40 border-white'></div> 
-                <div className='flex h-[68svh] items-start pt-1 p-8 justify-between bg-[#34856C] sticky top-[295px] z-40'>
+                <div className='flex h-[65svh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[295px] z-40'>
                     <span className='text-[48px] font-bold'>4.</span>
                     <div className=' space-y-4 w-[70%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
