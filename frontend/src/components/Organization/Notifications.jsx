@@ -12,7 +12,7 @@ const Notifications = ({setSelectedUser, setStatus}) => {
   useEffect(() => {
     const fetchNotifications = async() => {
       try{
-        const res = await axios.get("http://localhost:3001/api/getNotifications")
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/getNotifications`)
         setData(res.data.data.filter((item) => item.orgId == orgDetails.orgId && item.status == false));
       }
       catch(error)

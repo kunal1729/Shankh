@@ -32,31 +32,27 @@ const Home = () => {
 
 
   return (
-    <div className='scrollbar-none'>
-      <Navbar />
-      <div  className='overflow-y-scroll scrollbar-none'>
-        <div style={{scrollbarWidth : "40px"}} className='h-screen scrollbar-thumb-gray-500 [scrollbar-gutter:stable] [padding-right:10px] scrollbar-track-[#34856C] overflow-y-scroll'>
-          <Features className = "sticky top-10" />
+    <div className="h-screen scroll-smooth ">
+      <Navbar  />
+      
+      <section className="min-h-screen">
+        <Features />
+        <Services />
+      </section>
+
+      <section className="min-h-screen">
+        <AboutUs />
+        <Testimonials/>
+        <div className="h-[20px] sticky top-0 z-10 flex items-center justify-center bg-[#34856C] rounded-t-2xl">
+          <div className="w-[50px] border-white h-[0.5px] border-2"></div>
         </div>
-      </div>
-      <Services/>
-      <Testimonials/>
-      <div id = "AboutUs" className='pr-4'>
-        <div style={{scrollbarHeight : "40px"}} className='h-screen relative scrollbar-thumb-gray-500 scrollbar-track-gray-300 overflow-y-scroll'>
-          <AboutUs className = 'bg-fixed'/>
-          <div className=' h-[20px] sticky -top-3 z-10 rounded-t-2xl justify-center flex flex-col  items-center p-2 bg-[#34856C] '>
-              <div className=' w-[50px] border-white text-white h-[0.5px]  border-2 '>
-              </div>
-          </div>
-          <Blogs/>
-        </div>
-      </div>
-      <div className='pr-4 '>
-        <div ref={scrollRef}  className='h-screen scrollbar-thumb-gray-500 scrollbar-track-gray-300 overflow-y-scroll'>
-          <Clients opacity = {opacity1.current} className = 'bg-fixed'/>
-          <ContactUs x = {imageAnimation.current} />
-        </div>
-      </div>
+        <Blogs />
+      </section>
+
+      <section className="min-h-screen">
+        <Clients />
+        <ContactUs />
+      </section>
     </div>
   )
 }

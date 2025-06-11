@@ -27,7 +27,7 @@ const EditUser = ({selectedUser, setStatus}) => {
         if(ogCredits != data.credits)
         {
             try{
-                const res = await axios.post("http://localhost:3001/api/giveCredits", selectedUser)
+                const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/giveCredits`, selectedUser)
                 console.log(res.data.message);
             }
             catch(error)
@@ -36,7 +36,7 @@ const EditUser = ({selectedUser, setStatus}) => {
             }
         }
         try{
-            const url = "http://localhost:3001/api/editUser"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/editUser`
             const {data: res} = await axios.post(url, data);
             console.log(res.message);
             toast.success(res.message, {

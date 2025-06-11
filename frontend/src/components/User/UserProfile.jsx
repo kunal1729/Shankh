@@ -39,7 +39,7 @@ const UserProfile = () => {
         e.preventDefault();
         console.log(data);
         try{
-            const url = "http://localhost:3001/api/editUser"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/editUser`
             const {data: res} = await axios.post(url, data);
             setUserDetails(data);
             alert(res.message);
@@ -66,7 +66,7 @@ const UserProfile = () => {
 
     const handleRequest = async() => {
         try{
-            const res = await axios.post("http://localhost:3001/api/requestCredits", {
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/requestCredits`, {
                 userId : userDetails._id,
                 date : new Date().toLocaleDateString('en-US', {
                     day: 'numeric',

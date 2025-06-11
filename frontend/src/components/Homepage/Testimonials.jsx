@@ -3,7 +3,7 @@ import dp from "../../assets/dp.jpg"
 
 const Testimonials = () => {
   return (
-    <div id='Testimonials' className='p-[60px] bg-[#F8FAFA] flex flex-col justify-center items-center h-screen content-center text-center space-y-4'>
+    <div id='Testimonials' className='p-[60px] bg-[#F8FAFA] flex flex-col justify-center items-center h-screen content-center text-center sticky z-0 top-0 space-y-4'>
         <h1 style={{fontFamily : "Poppins"}} className=' text-[54px] text-[#FF6B5B]'>What our Users say</h1>
         <div className='flex gap-12 content-center'>
             <div className='space-y-4 w-[346px]'>

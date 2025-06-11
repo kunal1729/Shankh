@@ -25,7 +25,7 @@ const Login = () => {
     const handleLogin = async(e) => {
         e.preventDefault();
         try{
-            const url = "http://localhost:3001/api/auth"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/auth`
             const {data : res} = await axios.post(url, data)
             localStorage.setItem("token" , res.data.token);
             setIsAuthenticated(true);

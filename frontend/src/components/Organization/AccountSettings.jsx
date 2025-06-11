@@ -30,7 +30,7 @@ const AccountSettings = ({setSelectedUser, setStatus}) => {
 
         console.log(orgDetails);
         try{
-            const url = "http://localhost:3001/api/changePassword"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/changePassword`
             const {data: res} = await axios.post(url, data);
             console.log(res.data);
             setOrgDetails(res.data);

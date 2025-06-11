@@ -42,7 +42,7 @@ const OrgSignUp = () => {
         e.preventDefault();
         console.log(data.orgId)
         try{
-            const url = "http://localhost:3001/api/admins"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/admins`
             const {data: res} = await axios.post(url, data);
             setOrgDetails(data);
             console.log(res.message)

@@ -25,6 +25,7 @@ const OrgLogin = () => {
         console.log(data);
     }
 
+
     const handleLogin = async(e) => {
         e.preventDefault();
         try{
@@ -32,10 +33,10 @@ const OrgLogin = () => {
             var url = "";
             if(type == "admin")
             {
-                url = "http://localhost:3001/api/adminAuth";
+                url = `$/api/adminAuth`
             }
             else{
-                url = "http://localhost:3001/api/auth";
+                url = `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
             }
             const {data : res} = await axios.post(url, data)
             localStorage.setItem("token" , res.data.token);
@@ -127,7 +128,7 @@ const OrgLogin = () => {
                 <input onClick={() => setType("user")} checked = {type == "user"} type='radio' />
                 <span>User</span>
             </div>
-        </div>
+        </div> 
         
         <div className='inline-grid space-y-1'>
             <span style={{fontFamily : "Poppins"}} className='text-xs text-red-600'>{error}</span>

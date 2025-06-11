@@ -19,7 +19,7 @@ const OrgOverview = ({setStatus, setSelectedUser}) => {
 
     const fetchUsers  = async() => {
     try {
-        const data = await axios.get("http://localhost:3001/api/getUsers");
+        const data = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/getUsers`);
         console.log(data.data.data);
         setUserList(data.data.data);
 

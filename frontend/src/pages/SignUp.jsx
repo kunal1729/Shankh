@@ -25,7 +25,7 @@ const SignUp = () => {
         e.preventDefault();
         console.log(data);
         try{
-            const url = "http://localhost:3001/api/users"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/users`
             const {data: res} = await axios.post(url, data);
             console.log(res.message);
             toast.success(res.message, {

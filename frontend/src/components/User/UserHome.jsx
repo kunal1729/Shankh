@@ -18,7 +18,7 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-        const res = await axios.get("http://localhost:3001/api/getAllTests");
+        const res = await axios.get(`${process.env.VITE_API_BASE_URL}/api/getAllTests`);
         console.log(res.data.data.filter((item) => item.userId == userDetails._id));
 
         setTemp(res.data.data.filter((item) => item.userId == userDetails._id));
@@ -113,6 +113,8 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
     setSelectedTest(item);
     setStatus("results");
   }
+
+  console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
 
   return (
     <div className='bg-[#E7F0F0] h-[89svh] w-full overflow-x-hidden p-2 overflow-y-scroll'>

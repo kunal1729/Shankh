@@ -22,7 +22,7 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-        const res = await axios.get("http://localhost:3001/api/getAllTests");
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/getAllTests`);
         console.log(res.data.data);
 
         setTemp(res.data.data);

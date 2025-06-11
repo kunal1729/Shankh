@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <div id = 'Features' className='bg-[#F8FAFA] p-16 space-x-6 flex items-center sticky top-0 z-0 h-[97svh]'>
+    <div  className='bg-[#F8FAFA] p-16 space-x-6 flex items-center sticky top-0 z-0 h-[88svh]'>
       
       <div className='space-y-8'>
         <h1 style={{fontFamily : "Poppins"}} className='text-[48px] leading-tight font-bold'>

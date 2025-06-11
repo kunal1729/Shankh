@@ -14,7 +14,7 @@ const OrgProfile = () => {
  useEffect(() => {
    const loadDetails = async() => {
     try{
-      const url = "http://localhost:3001/api/getAdmin"
+      const url = `${import.meta.env.VITE_API_BASE_URL}/api/getAdmin`
       const {data: res} = await axios.post(url, orgDetails);
       setData(res.data);
     }
@@ -50,7 +50,7 @@ const OrgProfile = () => {
         e.preventDefault();
         console.log(data);
         try{
-            const url = "http://localhost:3001/api/editOrgDetails"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/editOrgDetails`
             const {data: res} = await axios.post(url, data);
             setOrgDetails(data);
             alert(res.message);

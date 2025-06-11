@@ -30,7 +30,7 @@ const OtpLogin = () => {
         e.preventDefault();
 
         try{
-            const url = "http://localhost:3001/api/otpVerify"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/otpVerify`
             const {data : res} = await axios.post(url , {email : location.state.email, otp : otp1.dig1 + otp1.dig2 + otp1.dig3 + otp1.dig4});
             console.log(res);
 
@@ -89,7 +89,7 @@ const OtpLogin = () => {
         console.log(data1.otp);
 
         try{
-            const url = "http://localhost:3001/api/resendOtp"
+            const url = `${import.meta.env.VITE_API_BASE_URL}/api/resendOtp`
             const {data1: res} = await axios.post(url, data1);
             console.log(res.message);
             toast.success(res.message, {

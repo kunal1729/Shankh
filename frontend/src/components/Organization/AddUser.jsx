@@ -34,7 +34,7 @@ const AddUser = ({setStatus}) => {
 
             console.log(orgDetails);
             try{
-                const url = "http://localhost:3001/api/addUser"
+                const url = `${import.meta.env.VITE_API_BASE_URL}/api/addUser`
                 const {data: res} = await axios.post(url, data);
                 console.log(res.message);
                 toast.success(res.message, {
