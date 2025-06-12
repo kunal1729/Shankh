@@ -33,7 +33,7 @@ const OrgLogin = () => {
             var url = "";
             if(type == "admin")
             {
-                url = `$/api/adminAuth`
+                url = `${import.meta.env.VITE_API_BASE_URL}/api/adminAuth`
             }
             else{
                 url = `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
