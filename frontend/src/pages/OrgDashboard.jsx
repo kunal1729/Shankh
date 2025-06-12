@@ -49,11 +49,11 @@ const OrgDashboard = () => {
 
 
   return (
-    <div className='flex h-screen w-[calc(100vw-300px)]'>
+    <div className='flex h-screen w-full'>
       <Sidebar status = {status} setStatus = {setStatus} />
       <div className='w-full'>
         
-        <div className='pl-[20px]  justify-between shadow-md h-[80px] items-center flex space-x-[40px] pt-[14px] pb-[14px] pr-[20px]'>
+        <div className='pl-[20px] w- justify-between shadow-md h-[80px] items-center flex space-x-[40px] pt-[14px] pb-[14px] pr-[20px]'>
             <div className={`flex  w-[70%] justify-between ${status != "home" ? "invisible" : null}`}>
               <select onClick={() => setBlurBg(true)} className='rounded-lg focus:outline-none bg-gray-50 text-sm' onChange={handleLanguage} value={language} id="lang" name="Language">
                   <option value="All">All</option>

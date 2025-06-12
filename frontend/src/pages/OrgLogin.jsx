@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useAppContext } from '../context/appContext'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
+
 const OrgLogin = () => {
 
     const {setIsAuthenticated, orgDetails, setOrgDetails, setUserDetails} = useAppContext()
