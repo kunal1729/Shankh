@@ -30,18 +30,27 @@ const OrgLogin = () => {
         e.preventDefault();
         try{
 
-            var url = "";
-            if(type == "admin")
-            {
-                url = `${import.meta.env.VITE_API_BASE_URL}/api/adminAuth`
-            }
-            else{
-                url = `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
-            }
+            console.log('VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+        console.log('All env vars:', import.meta.env);
+
+            const url = type == "admin" ? `${import.meta.env.VITE_API_BASE_URL}/api/adminAuth` : `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
+
+            console.log(url)
+            
             const {data : res} = await axios.post(url, data)
-            localStorage.setItem("token" , res.data.token);
+            
+
+            localStorage.setItem("token" , res.data ? res.data.token : "");
+
             setIsAuthenticated(true);
+
             console.log(res)
+
+            if(!res.data)
+            {
+                return;
+            }
+
             if(type == "admin")
             {
                 console.log(res.data.details)
@@ -64,6 +73,7 @@ const OrgLogin = () => {
         }
         catch(error)
         {
+            console.log(error.message);
             if (error.response) {
                 // Server responded with a status code outside the 2xx range
                 if (error.response.status >= 400 && error.response.status <= 500) {

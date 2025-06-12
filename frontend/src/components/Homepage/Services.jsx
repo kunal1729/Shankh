@@ -10,7 +10,7 @@ import prop6 from '../../assets/prop6.png'
 const Services = () => {
   return (
     <div id='Services' className=' bg-[#F8FAFA] h-full text-center content-center'>
-        <div className=' p-[32px] space-y-32 flex flex-col content-center '>
+        <div className=' p-[32px] space-y-32 flex flex-col h-screen content-center '>
             <div className='space-y-7'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[64px] font-semibold'>How it Works?</h1>
                 <span style={{fontFamily : "Inter"}} className='text-[24px]'>Our simple three-step process to transforming your communication skills</span>
@@ -45,7 +45,7 @@ const Services = () => {
                 </div>
             </div>
         </div>
-        <div className='space-y-12 flex flex-col justify-center items-center p-[75px]'>
+        <div className='space-y-12 flex flex-col justify-center h-screen items-center p-[75px]'>
             <div className='space-y-4'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[64px] font-semibold'>Who Can Benefit?</h1>
                 <span style={{fontFamily : "Inter"}} className='text-[24px] w-[898px] text-[#5F6C7B]'>Shankh is designed to help diverse users achieve their leadership, communication and emotional wellbeing goals</span>
