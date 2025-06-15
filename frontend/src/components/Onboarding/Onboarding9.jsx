@@ -130,8 +130,8 @@ const handleAudioSave = async(recordedBlob) => {
       console.log(test)
 
       const [res, res2] = await Promise.all([
-        axios.post("http://localhost:3001/api/addTest", test),
-        axios.post("http://localhost:3001/api/editCredits", {
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/addTest`, test),
+        axios.post("`${import.meta.env.VITE_API_BASE_URL}/api/editCredits`, {
           _id: userDetails._id,
           credits: userDetails.credits - 10
         })
@@ -151,7 +151,7 @@ const handleAudioSave = async(recordedBlob) => {
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await axios.post("http://localhost:3001/api/getUser", userDetails);
+          const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/getUser`, userDetails);
           console.log(res);
           setUserDetails(res.data.data);
         } catch (error) {
