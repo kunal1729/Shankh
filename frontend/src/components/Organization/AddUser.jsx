@@ -25,7 +25,7 @@ const AddUser = ({setStatus}) => {
     
         const handleChange = (e) => {
             console.log(data);
-            setData((prev) => ({...prev, password : "Kunal@123#"}));
+            setData((prev) => ({...prev, password : "Shankh@123#"}));
             setData((prev) => ({...prev, [e.target.id] : e.target.value}));
         }
     

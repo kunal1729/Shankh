@@ -2,7 +2,15 @@ import React, { useState } from 'react'
 import { useAppContext } from '../../context/appContext';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import pic1 from '../../assets/Onboarding/1.png'
+import pic2 from '../../assets/Onboarding/2.png'
+import pic3 from '../../assets/Onboarding/3.png'
+import pic4 from '../../assets/Onboarding/4.png'
+import pic5 from '../../assets/Onboarding/5.png'
+import pic6 from '../../assets/Onboarding/6.png'
 
+
+const images = [pic1, pic2, pic3, pic4, pic5, pic6];
 
 const goals = ["AI-Driven Speech Analysis", "Storytelling mastery", "Commanding authority", "Captivating presence", "Vocal charisma", "Influential personality"]
 
@@ -23,7 +31,7 @@ const Onboarding2 = () => {
           <div className='grid grid-cols-2 gap-[16px]'> 
             {goals.map((item, index) => {
                 return (<button style={{fontFamily : "Inter"}} onClick={() => setIsActive1((prev) => ({...prev, [item] : !prev[item]}))}  className={`flex flex-col border-[1px] rounded-lg border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive1[item] ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                            <span>img</span>
+                            <img src={images[index]} alt={item} />
                             <span className='text-[18px] text-[#5F6C7B]'>{item}</span>
                         </button>)
             })}

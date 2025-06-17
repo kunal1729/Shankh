@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
 import { useAppContext } from '../../context/appContext';
 import { NavLink } from 'react-router-dom';
+import pic1 from '../../assets/Onboarding/13.png'
+import pic2 from '../../assets/Onboarding/14.png'
+import pic3 from '../../assets/Onboarding/15.png'
+import pic4 from '../../assets/Onboarding/16.png'
+import pic5 from '../../assets/Onboarding/17.png'
+
+
+const images = [pic1, pic2, pic3, pic4, pic5];
+
 
 const Onboarding5 = () => {
     const { setPage, features, setFeatures, isActive4, setIsActive4 } = useAppContext(); 
@@ -18,23 +27,23 @@ const Onboarding5 = () => {
         making a presentation?</h1>
         <div style={{fontFamily : "Inter"}} className='grid grid-cols-2 items-center text-center justify-center gap-[16px]'> 
             <div onClick={() => setIsActive4("Highly confident")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Highly confident" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                <span>img</span>
+                <img src={images[0]}  />
                 <span className='text-[18px] text-[#5F6C7B]'>Highly confident</span>
             </div>
             <div onClick={() => setIsActive4("Fairly Confident")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Fairly Confident" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                <span>img</span>
+                <img src={images[1]}  />
                 <span className='text-[18px] text-[#5F6C7B]'>Fairly Confident</span>
             </div>
             <div onClick={() => setIsActive4("Neutral")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Neutral" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                <span>img</span>
+                <img src={images[2]} />
                 <span className='text-[18px] text-[#5F6C7B]'>Neutral</span>
             </div>
             <div onClick={() => setIsActive4("Slightly uncertain")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Slightly uncertain" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                <span>img</span>
+                <img src={images[3]} />
                 <span className='text-[18px] text-[#5F6C7B]'>Slightly uncertain</span>
             </div>
             <div onClick={() => setIsActive4("Not very confident")}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive4 == "Not very confident" ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                <span>img</span>
+                <img src={images[4]} />
                 <span className='text-[18px] text-[#5F6C7B]'>Not very confident</span>
             </div>
           </div>

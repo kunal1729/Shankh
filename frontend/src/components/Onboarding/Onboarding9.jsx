@@ -104,6 +104,7 @@ const handleAudioSave = async(recordedBlob) => {
 
       const test = {
         "userId" : userDetails._id,
+        "orgId" : userDetails.orgId,
         "date" : new Date().toLocaleDateString('en-US', {
           day: 'numeric',
           month: 'long',
@@ -165,7 +166,7 @@ const handleAudioSave = async(recordedBlob) => {
   console.log(audioFile)
 
   return ( 
-  <div className=' flex flex-col items-start p-8 h-[75svh] w-full space-y-4'>
+  <div className=' flex flex-col items-center  p-8 h-[75svh] w-full space-y-4'>
     {!resultOut && isLoading == false ? 
     <div className='flex w-[1007px] items-start text-start flex-col space-y-[45px] justify-center '> 
       <div className='rounded-2xl w-[1007px]  text-center shadow-md space-y-[42px] pb-[29px] pr-[24px] pt-[29px] pl-[24px] flex flex-col bg-white'>

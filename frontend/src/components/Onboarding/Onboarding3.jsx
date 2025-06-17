@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 import { useAppContext } from '../../context/appContext';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import pic1 from '../../assets/Onboarding/7.png'
+import pic2 from '../../assets/Onboarding/8.png'
+import pic3 from '../../assets/Onboarding/9.png'
+import pic4 from '../../assets/Onboarding/10.png'
+import pic5 from '../../assets/Onboarding/11.png'
+import pic6 from '../../assets/Onboarding/12.png'
+
+
+const images = [pic1, pic2, pic3, pic4, pic5, pic6];
 
 const skillSet = ["Precise Expression", "Powerful projection", "Consistent tonality", "Seamless flow of speech", "Captivating delivery", "Spontaneous oration"]
 
@@ -22,9 +31,9 @@ const Onboarding3 = () => {
           <h1 style={{fontFamily : "Poppins"}} className='text-[#34856C] leading-10 text-[32px] font-semibold'>What do you need from the app ?</h1>
           <p style={{fontFamily : "Inter"}} className='text-[18px] w-[631px]'>Now let us delve into which skill do you want to enhance?</p>
           <div style={{fontFamily : "Inter"}} className='grid grid-cols-2 gap-[16px]'> 
-            {skillSet.map((item) => {
+            {skillSet.map((item, index) => {
                 return (<button onClick={() => setIsActive2((prev) => ({...prev, [item] : !prev[item]}))}  className={`flex flex-col border-[1px] border-[#D9E0E6] p-[12px] w-[320px] h-[85px] ${isActive2[item] ? "bg-[#EFFDFA]" : null} space-y-[10px] items-center`}>
-                            <span>img</span>
+                            <img src={images[index]} alt={item} />
                             <span className='text-[18px] text-[#5F6C7B]'>{item}</span>
                         </button>)
             })}

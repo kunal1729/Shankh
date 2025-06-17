@@ -30,7 +30,7 @@ const SpiderChart = ({testData}) => {
   
 
   return (
-    <div style={{ width: 564, height: 381 }}>
+    <div className = "" style={{ width: 564, height: 381 }}>
       <ResponsiveContainer>
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid radialLines={false} gridType="polygon" />

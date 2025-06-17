@@ -4,6 +4,7 @@ import axios from "axios"
 import { motion } from 'framer-motion'
 import { useAppContext } from '../context/appContext'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const OrgLogin = () => {
@@ -56,6 +57,7 @@ const OrgLogin = () => {
             {
                 console.log(res.data.details)
                 setOrgDetails(res.data.details);
+                toast(res.message)
                 navigate("/orgDashboard");
             }
             else
@@ -68,9 +70,11 @@ const OrgLogin = () => {
                 }
                 console.log(res.data.user)
                 setUserDetails(res.data.user)
+                toast(res.message)
                 navigate("/userDashboard");
             }
-            alert(res.message);
+            
+            // alert(res.message);
         }
         catch(error)
         {
@@ -93,6 +97,7 @@ const OrgLogin = () => {
         }
     }
 
+    // toast("hi")
 
   return (
     <form onSubmit={handleLogin} className='bg-[#F8FAFA] flex flex-col z-0 items-center justify-center h-screen '>
@@ -147,6 +152,7 @@ const OrgLogin = () => {
         </div>
         <span style={{fontFamily : "Inter"}} className='text-[14px]'>Not a member? <NavLink to={'/orgSignUp'} className='text-[#34856C]'>Register Now</NavLink></span>
       </motion.div>
+      <ToastContainer/>
     </form>
   )
 }

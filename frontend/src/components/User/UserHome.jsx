@@ -3,6 +3,7 @@ import Chart from './Chart';
 import { useAppContext } from '../../context/appContext';
 import SpiderChart from '../../SpiderChart';
 import axios from 'axios';
+import { Tooltip } from '@mui/material';
 
 const UserHome = ({language, startDate, endDate, setStatus}) => {
 
@@ -119,40 +120,49 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
   return (
     <div className='bg-[#E7F0F0] h-[89svh] w-full overflow-x-hidden p-2 overflow-y-scroll'>
       <div className='bg-white w-[calc(100vw-305px)] shadow-md p-4 rounded-lg space-y-[20px]'>
-        <h3 style={{fontFamily : "Poppins"}} className='text-[18px] font-semibold'>Here is summary of user scores</h3>
+        <h3 style={{fontFamily : "Poppins"}} className='text-[20px] font-semibold'>Here is summary of user scores</h3>
         <div style={{fontFamily : "Poppins"}} className='grid gap-4 p-2 grid-cols-4'>
           <div  className='w-[230px] drop-shadow-lg  border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] pt-[22px] h-[119px]'>
-            <div  className='flex'>
-              <span className='font-semibold text-[#5F6C7B] text-[16px]'>Total Attempts</span>
-              <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-            </div>
+            <Tooltip title="Total number of attempts by the user within the selected time period." >
+                <div className='flex'>
+                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Total Attempts</span>
+                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                </div>
+            </Tooltip>
             <span className='text-[24px] font-semibold'>{data.length}</span>
           </div>
           <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
-            <div className='flex'>
-              <span className='font-semibold text-[#5F6C7B] text-[16px]'>Average Total Score</span>
-              <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-            </div>
+            <Tooltip title = "Average of all the scores of the user within the selected time period.">
+                <div className='flex'>
+                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Average Total Score</span>
+                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                </div>
+            </Tooltip>
             <span className='text-[24px] font-semibold'>{Math.ceil(vocalAverage + behaviourAverage)/2}%</span>
           </div>
           <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
-            <div className='flex'>
-              <span className='font-semibold text-[#5F6C7B] text-[16px]'>Vocal Insights Average</span>
-              <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-            </div>
+            
+            <Tooltip title = "Shows the mean performance score across all vocal analysis parameters including tone, pace, clarity, and speech patterns">
+                <div className='flex'>
+                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Vocal Insights Average</span>
+                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                </div>
+            </Tooltip>
             <span className='text-[24px] font-semibold'>{Math.ceil(vocalAverage)}%</span>
           </div>
           <div className='w-[230px] border-l-4 border-[#34856C] rounded-xl bg-white pl-[19px] pr-[32px] drop-shadow-lg pt-[22px] h-[119px]'>
-            <div className='flex'>
-              <span className='font-semibold text-[#5F6C7B] text-[16px]'>Behaviour Insights Average</span>
-              <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-            </div>
+            <Tooltip title = "Displays the average rating for behavioral assessment criteria such as confidence, engagement, body language, and presentation skills">
+                <div className='flex'>
+                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Behaviour Insights Average</span>
+                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                </div>
+            </Tooltip>
             <span className='text-[24px] font-semibold'>{Math.ceil(behaviourAverage)}%</span>
           </div>
         </div>
         <Chart testData = {data} />
         <div  className='bg-white space-y-2 brightness-100 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-            <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Performance across Key Parameters</h1>
+            <h1 style={{fontFamily : "Poppins"}} className='text-[20px] font-semibold'>Performance across Key Parameters</h1>
             <div style={{fontFamily : "Inter"}} className='flex gap-4 text-[18px]'>
                 <div className='drop-shadow-lg rounded-lg p-[20px] w-1/2'>
                     <h3 className='font-semibold'>Voice Insights :<span className='font-medium'> The Mechanics of Impactful Speech</span></h3>
@@ -165,14 +175,16 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
             </div>
         </div>
         <div style={{fontFamily : "Poppins"}} className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-            <h1 className='text-[24px] font-semibold'>Detailed Voice Insights</h1>
+            <h1 className='text-[20px] font-semibold'>Detailed Voice Insights</h1>
             <div className='grid grid-cols-2 gap-4'>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Fluency</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "The smoothness and ease of speech, without hesitations or repetitions.">
+                            <div className='flex justify-between'>
+                                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Fluency</span>
+                                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                            </div>
+                        </Tooltip>
                         <span className={`text-[16px] font-semibold ${voiceAverages.fluency <= 39
                             ? "text-[#FF6B5B]"
                             : voiceAverages.fluency <= 69
@@ -200,10 +212,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Clarity</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "Evaluates articulation, pronunciation, and overall intelligibility of spoken words and phrases">
+                            <div className='flex justify-between'>
+                                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Clarity</span>
+                                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                            </div>
+                        </Tooltip>
                         <span className={`text-[16px] font-semibold ${voiceAverages.clarity <= 39
                             ? "text-[#FF6B5B]"
                             : voiceAverages.clarity <= 69
@@ -231,10 +245,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Tone Modulation</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "The ability to vary pitch, volume, and rate to effectively communicate emotions and ideas">
+                            <div className='flex justify-between'>
+                                <span className='font-semibold text-[#5F6C7B] text-[16px]'>Tone Modulation</span>
+                                <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                            </div>
+                        </Tooltip>
                         <span className={`text-[16px] font-semibold ${voiceAverages.toneModulation <= 39
                             ? "text-[#FF6B5B]"
                             : voiceAverages.toneModulation <= 69
@@ -262,10 +278,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Filler Words</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "The use of filler words, such as 'um' or 'uh', which can indicate a lack of confidence or preparation.">
+                                                    <div className='flex justify-between'>
+                                                        <span className='font-semibold text-[#5F6C7B] text-[16px]'>Filler Words</span>
+                                                        <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                                                    </div>
+                                                </Tooltip>
                         <span className={`text-[16px] font-semibold ${voiceAverages.fillerWords <= 39
                             ? "text-[#FF6B5B]"
                             : voiceAverages.fillerWords <= 69
@@ -294,14 +312,16 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
             </div>
         </div>
         <div style={{fontFamily : "Poppins"}} className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
-            <h1 className='text-[24px] font-semibold'>Detailed Behavior Insights</h1>
+            <h1 className='text-[20px] font-semibold'>Detailed Behavior Insights</h1>
             <div className='grid grid-cols-2 gap-4'>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Emotional Regulation</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "The ability to effectively manage and express emotions in a professional setting.">
+                                                    <div className='flex justify-between'>
+                                                        <span className='font-semibold text-[#5F6C7B] text-[16px]'>Emotional Regulation</span>
+                                                        <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                                                    </div>
+                                                </Tooltip>
                         <span className={`text-[16px] font-semibold ${behaviorAverages.emotionalRegulation <= 39
                             ? "text-[#FF6B5B]"
                             : behaviorAverages.emotionalRegulation <= 69
@@ -329,10 +349,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Confidence & Presence</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "Evaluates vocal authority, self-assurance, and commanding presence conveyed through speech patterns">
+                                                    <div className='flex justify-between'>
+                                                        <span className='font-semibold text-[#5F6C7B] text-[16px]'>Confidence & Presence</span>
+                                                        <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                                                    </div>
+                                                </Tooltip>
                         <span className={`text-[16px] font-semibold ${behaviorAverages.confidenceAndPresence <= 39
                             ? "text-[#FF6B5B]"
                             : behaviorAverages.confidenceAndPresence <= 69
@@ -360,10 +382,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Pacing And Pauses</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "Analyzes speech rhythm, strategic use of silence, and appropriate timing for emphasis and comprehension">
+                                                    <div className='flex justify-between'>
+                                                        <span className='font-semibold text-[#5F6C7B] text-[16px]'>Pacing And Pauses</span>
+                                                        <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                                                    </div>
+                                                </Tooltip>
                         <span className={`text-[16px] font-semibold ${behaviorAverages.pacingAndPauses <= 39
                             ? "text-[#FF6B5B]"
                             : behaviorAverages.pacingAndPauses <= 69
@@ -391,10 +415,12 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
                 </div>
                 <div className='bg-white drop-shadow-lg rounded-lg pr-[25px] pb-[10px] pl-[25px] pt-[10px] '>
                     <div className='flex justify-between'>
-                        <div className='flex justify-between'>
-                            <span className='font-semibold text-[#5F6C7B] text-[16px]'>Engagement</span>
-                            <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
-                        </div>
+                        <Tooltip title = "Assesses ability to capture and maintain audience attention through dynamic and interactive vocal delivery">
+                                                    <div className='flex justify-between'>
+                                                        <span className='font-semibold text-[#5F6C7B] text-[16px]'>Engagement</span>
+                                                        <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
+                                                    </div>
+                                                </Tooltip>
                         <span className={`text-[16px] font-semibold ${behaviorAverages.engagement <= 39
                             ? "text-[#FF6B5B]"
                             : behaviorAverages.engagement <= 69
@@ -424,7 +450,7 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
         </div>
         <div className='bg-white brightness-100 space-y-8 rounded-lg drop-shadow-lg w-full pl-[24px] pt-[16px] pr-[24px] pb-[16px]'>
             <div className='flex justify-between items-center'>
-                <h1 style={{fontFamily : "Poppins"}} className='text-[24px] font-semibold'>Recent Tests</h1>
+                <h1 style={{fontFamily : "Poppins"}} className='text-[20px] font-semibold'>Recent Tests</h1>
                 <button onClick={() => setViewAll((prev) => !prev)} className='border w-[199px] hover:bg-[#34856C] cursor-pointer hover:text-white rounded-lg font-semibold pt-[10px] text-[16px] pb-[10px] pl-[53px] pr-[53px] text-[#34856C] border-[#34856C]'>{viewAll ? "View Less" : "View All"}</button>
             </div>
             <table style={{fontFamily : "Inter"}} class="w-full text-[18px]">

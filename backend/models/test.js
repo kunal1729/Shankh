@@ -7,6 +7,10 @@ const testSchema = new mongoose.Schema(
             type : String,
             required : true
         },
+        orgId : {
+            type : String,
+            required : true
+        },
         
         date : {
             type : String,

@@ -105,6 +105,7 @@ const handleAudioSave = async(recordedBlob) => {
 
       const test = {
         "userId" : userDetails._id,
+        "orgId" : userDetails.orgId,
         "date" : new Date().toLocaleDateString('en-US', {
           day: 'numeric',
           month: 'long',
