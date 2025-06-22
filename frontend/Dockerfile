@@ -12,7 +12,8 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # ✅ Set env var before build so Vite can use it
-ENV VITE_API_BASE_URL=http://localhost:3001
+ENV VITE_API_BASE_URL=https://app.shankh.ai
+
 
 # Build frontend (Vite -> dist/)
 RUN npm run build
