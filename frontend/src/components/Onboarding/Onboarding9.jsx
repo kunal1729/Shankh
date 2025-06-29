@@ -132,7 +132,7 @@ const handleAudioSave = async(recordedBlob) => {
 
       const [res, res2] = await Promise.all([
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/addTest`, test),
-        axios.post("`${import.meta.env.VITE_API_BASE_URL}/api/editCredits`, {
+        axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/editCredits`, {
           _id: userDetails._id,
           credits: userDetails.credits - 10
         })
