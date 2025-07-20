@@ -137,17 +137,17 @@ const Features = () => {
                             <div className='space-y-2'>
                                 <div className='space-x-4 text-[24px]'>
                                     <span>01</span>
-                                    <span className='font-bold'>Executive Presence</span>
+                                    <span className='font-bold'>Language Inclusivity</span>
                                 </div>
                                 <div className=' border-1 content-extralight border-[#F8FAFA]'></div>
                                 <div className='space-x-4 text-[24px]'>
                                     <span>02</span>
-                                    <span className='font-bold '>Persuasion Techniques</span>
+                                    <span className='font-bold '>Global Communication</span>
                                 </div>
                                 <div className=' border-1 content-extralight border-[#F8FAFA]'></div>
                                 <div className='space-x-4 text-[24px]'>
                                     <span>03</span>
-                                    <span className='font-bold'>Strategic Communication</span>
+                                    <span className='font-bold'>Regional Customization</span>
                                 </div>
                                 <div className=' border-1 content-extralight border-[#F8FAFA]'></div>
                             </div>
