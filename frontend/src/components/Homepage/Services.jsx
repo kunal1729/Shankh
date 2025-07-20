@@ -9,7 +9,7 @@ import prop6 from '../../assets/prop6.png'
 
 const Services = () => {
   return (
-    <div id='Services' className=' bg-[#F8FAFA] h-full text-center content-center'>
+    <div id='Services' className=' bg-[#F8FAFA] h-full text-center z-60 content-center'>
         <div className=' p-[32px] space-y-32 flex flex-col h-screen content-center '>
             <div className='space-y-7'>
                 <h1 style={{fontFamily : "Poppins"}} className='text-[64px] font-semibold'>How it Works?</h1>
@@ -66,7 +66,8 @@ const Services = () => {
                     <img className='w-[56px] h-[56px]' src={prop3}></img>
                     <h1 style={{fontFamily : "Poppins"}} className='text-[24px] w-[320px] font-bold'>Public Speakers & Entrepreneur</h1>
                     <p style={{fontFamily : "Inter"}} className='text-[16px] w-[320px]'>
-                    Get real-time feedback on pronunciation, tone, pace, and fluency to improve your communication skills effectively.</p>
+                    Deliver compelling speeches and master the art of persuasion
+                    </p>
                 </div>
                 <div className='p-[24px] hover:border-t-[#34856C] hover:border-t-4 w-[384px] bg-white shadow-md rounded-lg space-y-[16px] text-center flex flex-col items-center content-center'>
                     <img className='w-[56px] h-[56px]' src={prop4}></img>

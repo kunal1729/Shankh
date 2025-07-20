@@ -63,29 +63,30 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
     }, [language, startDate, endDate])
 
   useEffect(() => {
+   
     const newBehaviorAverages = {
-        emotionalRegulation: 0,
-        confidenceAndPresence: 0,
-        pacingAndPauses: 0,
-        engagement: 0,
+        "Emotional Regulation": 0,
+        "Confidence and Presence": 0,
+        "Pacing and Pauses": 0,
+        "Engagement": 0,
       };
       
       const newVoiceAverages = {
-        fluency: 0,
-        clarity: 0,
-        toneModulation: 0,
-        fillerWords: 0,
+        "Fluency": 0,
+        "Clarity": 0,
+        "Tone Modulation": 0,
+        "Filler Words": 0,
       };
     data.forEach(test => {
-        // Sum behavior insights
-        Object.keys(newBehaviorAverages).forEach(key => {
-            newBehaviorAverages[key] += test.behaviorInsights[key];
-        });
+        newVoiceAverages["Fluency"] += test.voiceInsights.fluency;
+        newVoiceAverages["Clarity"] += test.voiceInsights.clarity;
+        newVoiceAverages["Tone Modulation"] += test.voiceInsights.toneModulation;
+        newVoiceAverages["Filler Words"] += test.voiceInsights.fillerWords;
+        newBehaviorAverages["Emotional Regulation"] += test.behaviorInsights.emotionalRegulation;
+        newBehaviorAverages["Confidence and Presence"] += test.behaviorInsights.confidenceAndPresence;
+        newBehaviorAverages["Pacing and Pauses"] += test.behaviorInsights.pacingAndPauses;
+        newBehaviorAverages["Engagement"] += test.behaviorInsights.engagement;
         
-        // Sum voice insights
-        Object.keys(newVoiceAverages).forEach(key => {
-            newVoiceAverages[key] += test.voiceInsights[key];
-        });
     });
     Object.keys(newVoiceAverages).forEach(key => {
         newVoiceAverages[key] = Math.floor(newVoiceAverages[key]/data.length);
@@ -185,25 +186,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${voiceAverages.fluency <= 39
+                        <span className={`text-[16px] font-semibold ${voiceAverages["Fluency"] <= 39
                             ? "text-[#FF6B5B]"
-                            : voiceAverages.fluency <= 69
+                            : voiceAverages["Fluency"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{voiceAverages.fluency <= 39
-                            ? "Novice"
-                            : voiceAverages.fluency <= 69
+                        >{voiceAverages["Fluency"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : voiceAverages["Fluency"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{voiceAverages.fluency}%</span>
+                        <span className="text-[24px] font-semibold">{voiceAverages["Fluency"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${voiceAverages.fluency}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages.fluency <= 39
+                            style={{ width: `${voiceAverages["Fluency"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages["Fluency"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : voiceAverages.fluency <= 69
+                                : voiceAverages["Fluency"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -218,25 +219,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${voiceAverages.clarity <= 39
+                        <span className={`text-[16px] font-semibold ${voiceAverages["Clarity"] <= 39
                             ? "text-[#FF6B5B]"
-                            : voiceAverages.clarity <= 69
+                            : voiceAverages["Clarity"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{voiceAverages.clarity <= 39
-                            ? "Novice"
-                            : voiceAverages.clarity <= 69
+                        >{voiceAverages["Clarity"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : voiceAverages["Clarity"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{voiceAverages.clarity}%</span>
+                        <span className="text-[24px] font-semibold">{voiceAverages["Clarity"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${voiceAverages.clarity}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages.clarity <= 39
+                            style={{ width: `${voiceAverages["Clarity"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages["Clarity"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : voiceAverages.clarity <= 69
+                                : voiceAverages["Clarity"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -251,25 +252,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${voiceAverages.toneModulation <= 39
+                        <span className={`text-[16px] font-semibold ${voiceAverages["Tone Modulation"] <= 39
                             ? "text-[#FF6B5B]"
-                            : voiceAverages.toneModulation <= 69
+                            : voiceAverages["Tone Modulation"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{voiceAverages.toneModulation <= 39
-                            ? "Novice"
-                            : voiceAverages.toneModulation <= 69
+                        >{voiceAverages["Tone Modulation"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : voiceAverages["Tone Modulation"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{voiceAverages.toneModulation}%</span>
+                        <span className="text-[24px] font-semibold">{voiceAverages["Tone Modulation"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${voiceAverages.toneModulation}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages.toneModulation <= 39
+                            style={{ width: `${voiceAverages["Tone Modulation"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages["Tone Modulation"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : voiceAverages.toneModulation <= 69
+                                : voiceAverages["Tone Modulation"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -284,25 +285,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${voiceAverages.fillerWords <= 39
+                        <span className={`text-[16px] font-semibold ${voiceAverages["Filler Words"] <= 39
                             ? "text-[#FF6B5B]"
-                            : voiceAverages.fillerWords <= 69
+                            : voiceAverages["Filler Words"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{voiceAverages.fillerWords <= 39
-                            ? "Novice"
-                            : voiceAverages.fillerWords <= 69
+                        >{voiceAverages["Filler Words"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : voiceAverages["Filler Words"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{voiceAverages.fillerWords}%</span>
+                        <span className="text-[24px] font-semibold">{voiceAverages["Filler Words"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${voiceAverages.fillerWords}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages.fillerWords <= 39
+                            style={{ width: `${voiceAverages["Filler Words"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${voiceAverages["Filler Words"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : voiceAverages.fillerWords <= 69
+                                : voiceAverages["Filler Words"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -322,25 +323,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${behaviorAverages.emotionalRegulation <= 39
+                        <span className={`text-[16px] font-semibold ${behaviorAverages["Emotional Regulation"] <= 39
                             ? "text-[#FF6B5B]"
-                            : behaviorAverages.emotionalRegulation <= 69
+                            : behaviorAverages["Emotional Regulation"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{behaviorAverages.emotionalRegulation <= 39
-                            ? "Novice"
-                            : behaviorAverages.emotionalRegulation <= 69
+                        >{behaviorAverages["Emotional Regulation"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : behaviorAverages["Emotional Regulation"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{behaviorAverages.emotionalRegulation}%</span>
+                        <span className="text-[24px] font-semibold">{behaviorAverages["Emotional Regulation"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${behaviorAverages.emotionalRegulation}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages.emotionalRegulation <= 39
+                            style={{ width: `${behaviorAverages["Emotional Regulation"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages["Emotional Regulation"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : behaviorAverages.emotionalRegulation <= 69
+                                : behaviorAverages["Emotional Regulation"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -355,25 +356,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${behaviorAverages.confidenceAndPresence <= 39
+                        <span className={`text-[16px] font-semibold ${behaviorAverages["Confidence and Presence"] <= 39
                             ? "text-[#FF6B5B]"
-                            : behaviorAverages.confidenceAndPresence <= 69
+                            : behaviorAverages["Confidence and Presence"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{behaviorAverages.confidenceAndPresence <= 39
-                            ? "Novice"
-                            : behaviorAverages.confidenceAndPresence <= 69
+                        >{behaviorAverages["Confidence and Presence"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : behaviorAverages["Confidence and Presence"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{behaviorAverages.confidenceAndPresence}%</span>
+                        <span className="text-[24px] font-semibold">{behaviorAverages["Confidence and Presence"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${behaviorAverages.confidenceAndPresence}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages.confidenceAndPresence <= 39
+                            style={{ width: `${behaviorAverages["Confidence and Presence"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages["Confidence and Presence"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : behaviorAverages.confidenceAndPresence <= 69
+                                : behaviorAverages["Confidence and Presence"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -388,25 +389,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${behaviorAverages.pacingAndPauses <= 39
+                        <span className={`text-[16px] font-semibold ${behaviorAverages["Pacing and Pauses"] <= 39
                             ? "text-[#FF6B5B]"
-                            : behaviorAverages.pacingAndPauses <= 69
+                            : behaviorAverages["Pacing and Pauses"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{behaviorAverages.pacingAndPauses <= 39
-                            ? "Novice"
-                            : behaviorAverages.pacingAndPauses <= 69
+                        >{behaviorAverages["Pacing and Pauses"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : behaviorAverages["Pacing and Pauses"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{behaviorAverages.pacingAndPauses}%</span>
+                        <span className="text-[24px] font-semibold">{behaviorAverages["Pacing and Pauses"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${behaviorAverages.pacingAndPauses}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages.pacingAndPauses <= 39
+                            style={{ width: `${behaviorAverages["Pacing and Pauses"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages["Pacing and Pauses"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : behaviorAverages.pacingAndPauses <= 69
+                                : behaviorAverages["Pacing and Pauses"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>
@@ -421,25 +422,25 @@ const OrgHome = ({language, startDate, endDate, setStatus}) => {
                                 <span className='items-top text-center text-white rounded-full bg-[#5F6C7B] w-[12px] text-[10px] h-[12px]'>i</span>
                             </div>
                         </Tooltip>
-                        <span className={`text-[16px] font-semibold ${behaviorAverages.engagement <= 39
+                        <span className={`text-[16px] font-semibold ${behaviorAverages["Engagement"] <= 39
                             ? "text-[#FF6B5B]"
-                            : behaviorAverages.engagement <= 69
+                            : behaviorAverages["Engagement"] <= 69
                             ? "text-[#F9A826]"
                             : "text-[#34856C]"}`}
-                        >{behaviorAverages.engagement <= 39
-                            ? "Novice"
-                            : behaviorAverages.engagement <= 69
+                        >{behaviorAverages["Engagement"] <= 39
                             ? "Emerging"
-                            : "Proficient"}</span>
+                            : behaviorAverages["Engagement"] <= 69
+                            ? "Proficient"
+                            : "Masterful"}</span>
                     </div>
                     <div>
-                        <span className="text-[24px] font-semibold">{behaviorAverages.engagement}%</span>
+                        <span className="text-[24px] font-semibold">{behaviorAverages["Engagement"]}%</span>
                         <div className="flex h-[10px] w-full rounded-l-full rounded-r-full bg-[#D9E0E6]">
                             <div
-                            style={{ width: `${behaviorAverages.engagement}%` }}
-                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages.engagement <= 39
+                            style={{ width: `${behaviorAverages["Engagement"]}%` }}
+                            className={`h-[10px] rounded-l-full rounded-r-full ${behaviorAverages["Engagement"] <= 39
                                 ? "bg-[#FF6B5B]"
-                                : behaviorAverages.engagement <= 69
+                                : behaviorAverages["Engagement"] <= 69
                                 ? "bg-[#F9A826]"
                                 : "bg-[#34856C]"}`}
                             ></div>

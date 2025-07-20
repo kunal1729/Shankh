@@ -5,7 +5,7 @@ import Logo from '../../assets/Logo.png'
 
 const Navbar = () => {
   return (
-    <div className='flex shadow-xl top-0 sticky  z-50 bg-white items-center p-4 justify-between'>
+    <div className='flex shadow-xl top-0 sticky  z-60 bg-white items-center w-screen p-4 justify-between'>
       <img className='w-[141px] h-[38px]' src={Logo}></img>  
       <div className='flex space-x-[32px] text-[#5F6C7B] cursor-pointer text-sm items-center'>
         <Link style={{fontFamily : "Inter"}} to='Features' smooth={true} duration={800}>Features</Link>

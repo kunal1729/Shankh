@@ -14,15 +14,15 @@ const Features = () => {
             <div className=' w-[50px] border-white text-white h-[0.5px]  border-2 '>
             </div>
         </div>
-        <div id='Features' className='bg-[#34856C] space-x-2 text-[#F8FAFA] '>
+        <div id='Features' className='bg-[#34856C] h-full space-x-2 text-[#F8FAFA] '>
             <div  className='bg-[#34856C] sticky w-full z-0 -top-8 p-8' style={{fontFamily : "Poppins"}}>
                 <h1 className='font-bold text-[64px] '>Why Choose Shankh?</h1>
                 <div className='border h-[1px] z-0 border-white'></div>
             </div>
-            <div  className='h-full relative '>
-                <div className='flex h-screen -top-6 items-start z-10 p-8 sticky bg-[#34856C] justify-between'>
+            <div  className='h-[380svh] relative '>
+                <div className='flex h-[100vh] -top-6 items-start z-10 p-8 sticky bg-[#34856C] justify-between'>
                     <span className='text-[48px] font-bold'>1.</span>
-                    <div className=' space-y-8 w-[70%]'>
+                    <div className=' space-y-8 w-[80%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
                             <h1 className='text-[48px] w-[736px] font-semibold'>AI-Driven Speech Analysis</h1>
                             <img src={point1}></img>
@@ -55,9 +55,9 @@ const Features = () => {
                     
                 </div>
                 <div  className='border z-20 sticky top-[75px] border-white'></div> 
-                <div className='flex h-[90svh] items-start pl-8 pr-8 z-20 sticky top-[81px]  justify-between  bg-[#34856C] '>
+                <div className='flex h-[90vh] items-start pl-8 pr-8 z-20 sticky top-[81px]  justify-between  bg-[#34856C] '>
                     <span className='text-[48px] font-bold'>2.</span>
-                    <div className=' space-y-8 w-[70%]'>
+                    <div className=' space-y-8 w-[80%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
                             <h1 className='text-[48px] leading-tight w-[809px] font-semibold'>Emotionally Intelligent Feedback</h1>
                             <img src={point2}></img>
@@ -88,11 +88,11 @@ const Features = () => {
                     </div>
                 </div>
                 <div  className='border sticky top-[160px] z-30 border-white'></div> 
-                <div className='flex h-[80svh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[172px] z-30'>
+                <div className='flex h-[80vh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[172px] z-30'>
                     <span className='text-[48px] font-bold'>3.</span>
-                    <div className=' space-y-8 w-[70%]'>
+                    <div className=' space-y-8 w-[80%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
-                            <h1 className='text-[48px] w-[900px] leading-12 font-semibold'>Leadership & Communication Workshops</h1>
+                            <h1 className='text-[48px] w-[1300px] leading-12 font-semibold'>Leadership & Communication Workshops</h1>
                             <img src={point3}></img>
                         </div>
                         <div style={{fontFamily : "Inter"}} className='space-y-8 relative'>
@@ -122,10 +122,10 @@ const Features = () => {
                     </div>
                 </div>
                 
-                <div  className='border sticky top-[280px] z-40 border-white'></div> 
-                <div className='flex h-[65svh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[295px] z-40'>
+                <div  className='border sticky  top-[250px] z-40 border-white'></div> 
+                <div className='flex h-[100vh] items-start pl-8 pr-8 justify-between bg-[#34856C] sticky top-[260px] z-40'>
                     <span className='text-[48px] font-bold'>4.</span>
-                    <div className=' space-y-4 w-[70%]'>
+                    <div className=' space-y-4 w-[80%]'>
                         <div style={{fontFamily : "Poppins"}} className='flex items-center justify-between'>
                             <h1 className='text-[48px] w-[636px] font-semibold'>Multi-Language Support</h1>
                             <img src={point4} />
