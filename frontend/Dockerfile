@@ -12,10 +12,10 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # ✅ Set env var before build so Vite can use it
-ENV VITE_API_BASE_URL=http://localhost:3001
-
-# Build frontend (Vite -> dist/)
+# Make sure .env.production is copied BEFORE build
+COPY .env.production ./
 RUN npm run build
+
 
 
 # Serve dist/ folder

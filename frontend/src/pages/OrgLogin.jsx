@@ -35,7 +35,8 @@ const OrgLogin = () => {
             console.log('VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
         console.log('All env vars:', import.meta.env);
 
-            const url = type == "admin" ? `${import.meta.env.VITE_API_BASE_URL}/api/adminAuth` : `${import.meta.env.VITE_API_BASE_URL}/api/auth`;
+           const url = type == "admin" ? `${import.meta.env.VITE_API_BASE_URL}/adminAuth` : `${import.meta.env.VITE_API_BASE_URL}/auth`;
+
 
             console.log(url)
             
