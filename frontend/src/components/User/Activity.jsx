@@ -95,7 +95,7 @@ const handleAudioSave = async(recordedBlob) => {
       formData.append("file", audioFile); 
       formData.append("language", "en"); 
 
-      const response = await axios.post("https://cruvss-fast-api.hf.space/analyze_all/", formData, {
+      const response = await axios.post("https://api.shankh.ai/analyze_all/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -111,7 +111,7 @@ const handleAudioSave = async(recordedBlob) => {
           month: 'long',
           year: 'numeric',
         }),
-        "language" : response.data["Detected Language"],
+        "language" : response.data["detected_language"] || response.data["Detected Language"],
         "voiceInsights" : {
           "fluency" : response.data.fluency.fluency_score,
           "toneModulation" : response.data.tone.speech_dynamism_score,
@@ -125,6 +125,13 @@ const handleAudioSave = async(recordedBlob) => {
           "engagement": response.data.ves["ves"]
         },
         "fillerWordsUsed" : response.data.filler_words.total_fillers,
+        // Add detailed filler words data
+        "fillerWordsDetails": {
+          "counts": response.data.filler_words.filler_counts,
+          "totalFillers": response.data.filler_words.total_fillers,
+          "fillerScore": response.data.filler_words.filler_score,
+          "fillerRatePerMin": response.data.filler_words.filler_rate_per_min
+        },
         "transcript" : response.data.transcript,
         "overallScore" : response.data.sank_score
       }
@@ -144,7 +151,8 @@ const handleAudioSave = async(recordedBlob) => {
       console.log(response)
       setStatus("results")
     } catch (error) {
-      console.error("Error:", error.response.data.detail);
+      console.error("Error:", error.response?.data?.detail || error.message);
+      setIsLoading(false);
     }
 
   }
