@@ -125,7 +125,6 @@ const handleAudioSave = async(recordedBlob) => {
           "engagement": response.data.ves["ves"]
         },
         "fillerWordsUsed" : response.data.filler_words.total_fillers,
-        // Add detailed filler words data
         "fillerWordsDetails": {
           "counts": response.data.filler_words.filler_counts,
           "totalFillers": response.data.filler_words.total_fillers,
@@ -136,7 +135,7 @@ const handleAudioSave = async(recordedBlob) => {
         "overallScore" : response.data.sank_score
       }
 
-      console.log(test)
+      console.log("test",test)
 
       const [res, res2] = await Promise.all([
         axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/addTest`, test),
@@ -146,8 +145,9 @@ const handleAudioSave = async(recordedBlob) => {
         })
       ]);
 
+      console.log("res",res.data.data)
 
-      setSelectedTest(res.data.data);
+      setSelectedTest(test);
       console.log(response)
       setStatus("results")
     } catch (error) {

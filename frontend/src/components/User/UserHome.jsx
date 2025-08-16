@@ -111,6 +111,7 @@ const UserHome = ({language, startDate, endDate, setStatus}) => {
   }, 0) / data.length || 0;
 
   const handleView = (item) => {
+    console.log(item);
     setSelectedTest(item);
     setStatus("results");
   }

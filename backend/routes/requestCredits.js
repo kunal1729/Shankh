@@ -6,8 +6,6 @@ module.exports = router.post("/", async(req, res) => {
 
         const data = await new Notifications(req.body).save();
 
-        console.log(data);
-
         return res.status(200).send({message : "Credit Request sent successfully !"});
     }
     catch(error)

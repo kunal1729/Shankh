@@ -15,8 +15,6 @@ module.exports = router.post("/", async(req, res) => {
             return res.status(409).send({message : "User with given details already exists, kindly Login."});
         }
 
-        console.log(req.body);
-
         const salt = await bcrypt.genSalt(Number(process.env.SALT));
         const hashPassword = await bcrypt.hash(req.body.password, salt);
 

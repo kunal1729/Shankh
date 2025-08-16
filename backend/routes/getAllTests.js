@@ -5,7 +5,6 @@ require("dotenv").config();
 module.exports = router.get("/", async(req, res) => {
     try{
         const data = await Test.find({});
-        console.log("Data",data);
         if(!data)
         {
             res.status(409).send({message : "No users found"});

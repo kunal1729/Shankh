@@ -5,7 +5,6 @@ require("dotenv").config();
 module.exports = router.get("/", async(req, res) => {
     try{
         const data = await Notifications.find({});
-        console.log(data);
         if(!data)
         {
             res.status(409).send({message : "No notifications found"});

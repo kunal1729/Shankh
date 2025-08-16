@@ -10,7 +10,6 @@ module.exports = router.post("/", async(req, res) => {
             { $set: { credits: req.body.credits } }
           );
 
-          console.log(result)
 
         return res.status(200).send({message : "User edited successfully !"});
     }

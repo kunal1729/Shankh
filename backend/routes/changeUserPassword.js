@@ -8,7 +8,6 @@ module.exports = router.post("/", async(req, res) => {
 
         const user = await User.findOne({_id : req.body._id});
         
-        console.log(req.body)
 
         const validPassword = await bcrypt.compare(
             req.body.oldPassword, user.password

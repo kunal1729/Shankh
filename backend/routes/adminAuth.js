@@ -29,7 +29,6 @@ module.exports = router.post("/", async(req, res) => {
 
 
         const token = admin.generateAuthToken();
-        console.log(admin);
         res.status(200).send({data : {token, details : {_id : admin._id , orgId : admin.orgId, orgName : admin.orgName, email : admin.email}}, message : "Logged in successfully."})
     }
     catch(error)

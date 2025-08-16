@@ -6,17 +6,17 @@ import Notifications from './Notifications';
 
 const AccountSettings = () => {
 
-  const {userDetails, setUserDetails} = useAppContext();
+    const {userDetails, setUserDetails} = useAppContext();
 
-  const [active, setActive] = useState("changePass")
- 
-  const [data, setData] = useState({
-    id : userDetails._id,
-    oldPassword : "",
-    newPassword : ""
-  });
+    const [active, setActive] = useState("changePass")
   
-  const [error, setError] = useState("");
+    const [data, setData] = useState({
+      id : userDetails._id,
+      oldPassword : "",
+      newPassword : ""
+    });
+    
+    const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
@@ -45,20 +45,19 @@ const AccountSettings = () => {
         catch(error)
         {
             if (error.response) {
-                // Server responded with a status code outside the 2xx range
                 if (error.response.status >= 400 && error.response.status <= 500) {
                     setError(error.response.data.message);
                     console.log(error.response.data.message);
                 }
-            } else if (error.request) {
-                // Request was made, but no response was received
-                console.error("No response received from server", error.request);
-                setError("Server is unreachable. Please try again later.");
-            } else {
-                // Something else caused the error
-                console.error("Error:", error.message);
-                setError("An unexpected error occurred.");
-            }
+                } 
+                else if (error.request) {
+                    console.error("No response received from server", error.request);
+                    setError("Server is unreachable. Please try again later.");
+                } 
+                else {
+                    console.error("Error:", error.message);
+                    setError("An unexpected error occurred.");
+                }
         }
     }
   

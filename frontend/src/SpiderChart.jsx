@@ -26,9 +26,6 @@ const SpiderChart = ({testData}) => {
     }, [testData])
     
 
-    console.log(testData)
-  
-
   return (
     <div className = "" style={{ width: 564, height: 381 }}>
       <ResponsiveContainer>
