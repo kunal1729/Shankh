@@ -55,7 +55,12 @@ app.use("/api/requestCredits", requestCreditsRoutes);
 app.use("/api/getNotifications", getNotificationsRoutes);
 app.use("/api/giveCredits", giveCreditsRoutes);
 
+// Add health check route
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 const port = process.env.PORT || 8080;
 app.listen(port , () => {
-    console.log('Listening on port ${port}...')
-})
+    console.log(`Listening on port ${port}...`);
+});

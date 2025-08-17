@@ -26,9 +26,6 @@ const SpiderChart = ({testData}) => {
     }, [testData])
     
 
-    console.log(testData)
-  
-
   return (
     <div className = "" style={{ width: 564, height: 381 }}>
       <ResponsiveContainer>
@@ -57,13 +54,13 @@ const SpiderChart = ({testData}) => {
               let label = '';
               let fill = 'red'
               if (payload.value === 0) {
-                label = 'Novice';
+                label = 'Emerging';
                 fill = '#FF6B5B';
               } else if (payload.value === 39) {
-                label = 'Emerging';
+                label = 'Proficient';
                 fill = '#F9A826';
               } else if (payload.value === 69) {
-                label = 'Proficient';
+                label = 'Masterful';
                 fill = '#34856C';
               } 
           

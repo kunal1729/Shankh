@@ -4,7 +4,7 @@ require("dotenv").config();
 
 module.exports = router.get("/", async(req, res) => {
     try{
-        const data = await Test.findById(req.body.orgId);
+        const data = await Test.find({});
         if(!data)
         {
             res.status(409).send({message : "No users found"});
@@ -18,5 +18,6 @@ module.exports = router.get("/", async(req, res) => {
     {
         console.log(error);
         res.status(500).send({message : "Internal Server error."})
+        return;
     }
 })

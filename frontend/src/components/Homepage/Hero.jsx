@@ -7,10 +7,10 @@ const Hero = () => {
     <div  className='bg-[#F8FAFA] p-16 space-x-6 flex items-center sticky top-0 z-0 h-[88svh]'>
       
       <div className='space-y-8'>
-        <h1 style={{fontFamily : "Poppins"}} className='text-[48px] leading-tight font-bold'>
-            <span className='text-[#34856C]'>Empower Voice</span>
-            <br/><span>Transformative <br/> Technology.</span>
-            <span className='text-[#FF6B5B]'>Unleash <br/> Potential.</span>
+        <h1 style={{fontFamily : "Poppins"}} className='text-[48px] flex flex-col gap-2 font-bold'>
+            <span className='text-[#34856C]'>Empower Voice...</span>
+            <span>Transformative Technology...</span>
+            <span className='text-[#FF6B5B]'>Unleash Potential</span>
         </h1>
         <p style={{fontFamily : "Inter"}} className='text-[#5F6C7B] text-[18px]'>Shaping the future of communication, leadership, and emotional intelligence with advanced AI solutions</p>
         <div style={{fontFamily : "Poppins"}} className='flex content-center space-x-[32px]'>

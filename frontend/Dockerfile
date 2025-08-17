@@ -15,8 +15,12 @@ COPY . .
 ENV VITE_API_BASE_URL=https://app.shankh.ai
 
 
-# Build frontend (Vite -> dist/)
+
+# Make sure .env.production is copied BEFORE build
+COPY .env.production ./
+
 RUN npm run build
+
 
 
 # Serve dist/ folder

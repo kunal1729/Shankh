@@ -6,7 +6,7 @@ module.exports = router.post("/", async(req, res) => {
 
         const data = await new Test(req.body).save();
 
-        console.log(data);
+        console.log("Data",data);
 
         return res.status(200).send({data : data, message : "User created successfully !"});
     }

@@ -27,8 +27,7 @@ const Home = () => {
         setPos(latest);
       });
 
-    const opacity1 = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-    const imageAnimation = useTransform(scrollYProgress, [0.3, 0.8], [-600, 80]);
+    
 
 
   return (
@@ -46,13 +45,14 @@ const Home = () => {
         <div className="h-[20px] sticky top-0 z-10 flex items-center justify-center bg-[#34856C] rounded-t-2xl">
           <div className="w-[50px] border-white h-[0.5px] border-2"></div>
         </div>
-        <Blogs />
+        <ContactUs />
+        {/* <Blogs /> */}
       </section>
 
-      <section className="min-h-screen">
+      {/* <section className="min-h-screen">
         <Clients />
         <ContactUs />
-      </section>
+      </section> */}
     </div>
   )
 }

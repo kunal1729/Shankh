@@ -31,8 +31,6 @@ const sendOTP = async(req, res) => {
     {
         const updateData = await UserOTPs.findByIdAndUpdate({_id : existsEmail._id} , {otp : OTP});
 
-        console.log(updateData.otp)
-
         await updateData.save();
 
         const mailOptions = {

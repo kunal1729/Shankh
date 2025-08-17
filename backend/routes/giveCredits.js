@@ -9,8 +9,6 @@ module.exports = router.post("/", async(req, res) => {
             { $set: { status: true} }
           );
 
-          console.log(result)
-
         return res.status(200).send({message : "Credits granted successfully !"});
     }
     catch(error)

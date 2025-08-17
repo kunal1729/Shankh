@@ -6,8 +6,6 @@ module.exports = router.post("/", async(req, res) => {
 
         const data = await Admin.findByIdAndUpdate(req.body._id, req.body)
 
-        console.log(data);
-
         return res.status(200).send({message : "Details edited successfully !"});
     }
     catch(error)

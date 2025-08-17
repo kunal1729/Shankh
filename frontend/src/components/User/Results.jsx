@@ -36,8 +36,7 @@ const Results = () => {
 
     pdf.save('assessment-report.pdf');
   };
-  
-  
+
 
   console.log(selectedTest);
 
@@ -403,17 +402,18 @@ const Results = () => {
                 </div>
                 <p style={{fontFamily : "Inter"}} className='text-center text-[14px]'>The usage of filler words is on the higher side, contributed primarily by "um", "like", "uh", and "you know". Training with impromptu speaking drills and using deliberate pauses instead of fillers can significantly improve your delivery.</p>
                 <div  className='flex justify-center gap-4'>
-                    {Object.keys(selectedTest.fillerWordsUsed).map(key => {
-                        console.log(selectedTest.fillerWordsUsed[key])
+                    { selectedTest && selectedTest.fillerWordsDetails && Object.keys(selectedTest.fillerWordsDetails.counts).map(key => {
+                        console.log(key);
                         return (
-                            <div className='flex rounded-2xl w-[135px] h-[114px] bg-white drop-shadow-lg pl-[16px] pb-[10px] pr-[16px] pt-[10px] shadow-xl flex-col items-center' key = {key}>
-                                <span style={{fontFamily : "Poppins"}} className='text-[#FF6B5B] font-semibold text-[32px]'>{selectedTest.fillerWordsUsed[key]}</span>
+                            <div className='flex rounded-2xl w-[135px] h-[114px] drop-shadow-lg pl-[16px] pb-[10px] pr-[16px] pt-[10px] shadow-xl flex-col items-center' key = {key}>
+                                <span style={{fontFamily : "Poppins"}} className='text-[#FF6B5B] font-semibold text-[32px]'>{selectedTest.fillerWordsDetails.counts[key]}</span>
                                 <span style={{fontFamily : "Inter"}} className='text-[18px]'>"{key}"</span>
                             </div>
                         )
                     })}
                 </div>
                 <div style={{fontFamily : "Poppins"}} className='flex gap-12 text-center justify-center items-center bg-[#FFFBF5] pr-[80px] pb-[19px] pl-[80px] pt-[19px]'>
+                    
                     <div className='text-[20px] bg-white p-2 font-semibold text-[#34856C] rounded-xl drop-shadow-lg'>um</div>
                     <div className='text-[20px] bg-white p-2 font-semibold text-[#F9A826] rounded-xl drop-shadow-lg'>like</div>
                     <div className='text-[20px] bg-white p-2 font-semibold text-[#FF6B5B] rounded-xl drop-shadow-lg'>you know</div>

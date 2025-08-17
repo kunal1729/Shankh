@@ -4,7 +4,6 @@ require("dotenv").config();
 
 module.exports = router.post("/", async(req, res) => {
     try{
-        console.log("Hi" , req.body);
         const data = await User.findById({_id : req.body._id});
         res.status(200).send({data, message : "User found !"})
     }
