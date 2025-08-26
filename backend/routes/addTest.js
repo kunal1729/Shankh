@@ -3,7 +3,6 @@ const {Test} = require("../models/test")
 
 module.exports = router.post("/", async(req, res) => {
     try{
-
         const data = await new Test(req.body).save();
 
         console.log("Data",data);

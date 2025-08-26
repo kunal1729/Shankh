@@ -57,12 +57,7 @@ const UserDashboard = () => {
               <h1 className='text-gray-600'>Credit available : <span className='text-[#34856C]'>{userDetails.credits}</span></h1>
             </div> : null}
             <div className={`flex  w-[50%] items-center space-x-20 text-center justify-center ${status != "home" ? "invisible" : null}`}>
-              <select onClick={() => setBlurBg(true)} className='rounded-lg focus:outline-none bg-gray-50 text-sm' onChange={handleLanguage} value={language} id="lang" name="Language">
-                  <option value="All">All</option>
-                  <option value="Hindi">Hindi</option>
-                  <option value="English">English</option>
-                  <option value="Telugu">Telugu</option>
-              </select>
+            
               <div className='flex items-center space-x-[20px]'>
                     <Datepicker format = "dd/MM/yyyy" language="en"  maxDate={new Date(endDate)} onChange={handleStartDate} id = "startDate"  icon={null} />
                   <span>to</span>

@@ -11,7 +11,7 @@ const {userDetails, setSelectedTest, setTranscript, setUserDetails} = useAppCont
 console.log(setStatus)
 
 const [isRecording, setIsRecording] = useState(false);
-const [seconds, setSeconds] = useState(60);
+const [seconds, setSeconds] = useState(30);
 const [audioFile, setAudioFile] = useState(null);
 const [isLoading, setIsLoading] = useState(false);
 const [recordedChunks, setRecordedChunks] = useState([]);
@@ -65,7 +65,7 @@ const handleAudioSave = async(recordedBlob) => {
   const handleReset = () => {
     setRecordedChunks([]);
     setIsRecording(false);
-    setSeconds(60);
+    setSeconds(30);
     setTranscript("");
   };
 
@@ -200,7 +200,7 @@ const handleAudioSave = async(recordedBlob) => {
           </div> 
         <span className=' italic text-[#5F6C7B] text-[14px]'>Note: Each Assessment charge is 10 credits</span> 
       </div> 
-      <div className='text-center w-full items-center'>
+      <div className='text-center w-full items-start'>
         <button style={{fontFamily : "Poppins"}} className="bg-[#FF6B5B] text-white text-[20px] font-semibold w-[287px] pt-[10px] pl-[53px] pb-[10px] rounded-lg pr-[53px]" onClick={handleSubmit} >Take Assessment</button> 
       </div>
     </div> : <Loader isLoading={isLoading}  /> } 
